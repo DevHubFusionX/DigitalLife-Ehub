@@ -8,7 +8,7 @@ const Solution = () => {
         initial: { opacity: 0, y: 40 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true },
-        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
+        transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }
     };
 
     return (
@@ -35,7 +35,7 @@ const Solution = () => {
                     {/* Block 1 - Focus: Clarity */}
                     <motion.div
                         {...fadeUp}
-                        transition={{ delay: 0.2, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: 0.2, duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
                         className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-center"
                     >
                         <div className="lg:col-span-5 lg:col-start-1">
@@ -59,7 +59,7 @@ const Solution = () => {
                     {/* Block 2 - Focus: Structure */}
                     <motion.div
                         {...fadeUp}
-                        transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
                         className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-center"
                     >
                         <div className="lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
@@ -83,7 +83,7 @@ const Solution = () => {
                     {/* Block 3 - Focus: Visibility & Stats */}
                     <motion.div
                         {...fadeUp}
-                        transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
                         className="max-w-4xl mx-auto text-center"
                     >
                         <div className="space-y-8">

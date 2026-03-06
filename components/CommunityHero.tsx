@@ -35,7 +35,7 @@ const CommunityHero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
                     className="max-w-5xl"
                 >
                     <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-accent text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12">

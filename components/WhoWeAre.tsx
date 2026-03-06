@@ -35,7 +35,7 @@ const WhoWeAre = () => {
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
                         className="text-center lg:text-left"
                     >
                         <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-primary/40 mb-4 md:mb-6 block">Our Identity</span>

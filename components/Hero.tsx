@@ -31,7 +31,7 @@ const Hero = () => {
 
     const bentoItem = {
         initial: { opacity: 0, y: 24 },
-        animate: (i) => ({ opacity: 1, y: 0, transition: { delay: 0.1 * i, duration: 0.5 } })
+        animate: (i: number) => ({ opacity: 1, y: 0, transition: { delay: 0.1 * i, duration: 0.5 } })
     };
 
     const cardHover = { scale: 1.02, transition: { duration: 0.2 } };

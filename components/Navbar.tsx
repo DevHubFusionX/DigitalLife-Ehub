@@ -62,7 +62,7 @@ const Navbar = () => {
 
     const itemVariants = {
         hidden: { opacity: 0, x: 30 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const } },
         exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
     };
 
@@ -138,7 +138,7 @@ const Navbar = () => {
                         <div className="w-5 flex flex-col items-end gap-[5px]">
                             <motion.span
                                 animate={isOpen ? { rotate: 45, y: 7, width: 20 } : { rotate: 0, y: 0, width: 20 }}
-                                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
                                 className="block h-[2px] bg-current rounded-full origin-center"
                                 style={{ width: 20 }}
                             />
@@ -150,7 +150,7 @@ const Navbar = () => {
                             />
                             <motion.span
                                 animate={isOpen ? { rotate: -45, y: -7, width: 20 } : { rotate: 0, y: 0, width: 20 }}
-                                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
                                 className="block h-[2px] bg-current rounded-full origin-center"
                                 style={{ width: 17 }}
                             />
@@ -178,7 +178,7 @@ const Navbar = () => {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
                             className="fixed top-[60px] left-0 right-0 z-[50] md:hidden"
                         >
                             <div className="mx-3 bg-white rounded-2xl shadow-2xl shadow-primary/10 border border-border-subtle overflow-hidden">

@@ -27,7 +27,7 @@ const AboutHero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
                     >
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-8">
                             <span className="w-1 h-1 rounded-full bg-accent animate-ping" />
@@ -55,7 +55,7 @@ const AboutHero = () => {
                             transition={{
                                 duration: 0.8,
                                 delay: i * 0.1,
-                                ease: [0.16, 1, 0.3, 1]
+                                ease: [0.16, 1, 0.3, 1] as const
                             }}
                             className="bg-primary p-10 hover:bg-white/[0.02] transition-colors duration-500 group"
                         >
