@@ -5,10 +5,14 @@ import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import RegistrationModal from "../registration/RegistrationModal";
+import LoginModal from "../registration/LoginModal";
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
     const pathname = usePathname();
 
     // Pages with white background hero sections
@@ -114,12 +118,23 @@ const Navbar = () => {
                             ))}
                         </ul>
 
-                        <Link
-                            href="#start"
+                        <button
+                            onClick={() => setIsLoginOpen(true)}
+                            className={`text-sm font-bold transition-all ${isScrolled
+                                ? "text-primary/60 hover:text-primary"
+                                : isLightHero
+                                    ? "text-primary/60 hover:text-primary"
+                                    : "text-white/70 hover:text-white"
+                                }`}
+                        >
+                            Sign In
+                        </button>
+                        <button
+                            onClick={() => setIsModalOpen(true)}
                             className="px-6 py-2.5 rounded-xl text-sm font-bold bg-accent text-primary hover:scale-105 hover:shadow-lg transition-all"
                         >
                             Get Started
-                        </Link>
+                        </button>
                     </div>
 
                     {/* Mobile Menu Toggle — animated hamburger */}
@@ -219,19 +234,42 @@ const Navbar = () => {
                                     transition={{ delay: 0.35 }}
                                     className="px-4 pb-4 pt-1"
                                 >
-                                    <Link
-                                        href="#start"
+                                    <button
+                                        onClick={() => {
+                                            setIsOpen(false);
+                                            setIsLoginOpen(true);
+                                        }}
+                                        className="w-full py-3.5 border border-border-subtle text-primary text-sm font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-gray-50 transition-all active:scale-[0.98] mb-2"
+                                    >
+                                        Sign In
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setIsOpen(false);
+                                            setIsModalOpen(true);
+                                        }}
                                         className="w-full py-3.5 bg-primary text-white text-sm font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-all active:scale-[0.98]"
                                     >
                                         Get Started
                                         <ArrowRight size={16} />
-                                    </Link>
+                                    </button>
                                 </motion.div>
                             </div>
                         </motion.div>
                     </>
                 )}
             </AnimatePresence>
+
+            <RegistrationModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSwitchToLogin={() => setIsLoginOpen(true)}
+            />
+            <LoginModal
+                isOpen={isLoginOpen}
+                onClose={() => setIsLoginOpen(false)}
+                onSwitchToRegister={() => setIsModalOpen(true)}
+            />
         </>
     );
 };

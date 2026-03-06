@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AboutHero from "@/components/AboutHero";
-import WhoWeAre from "@/components/WhoWeAre";
-import WhatWeDo from "@/components/WhatWeDo";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
+import AboutHero from "@/components/about/AboutHero";
+import WhoWeAre from "@/components/about/WhoWeAre";
+import WhatWeDo from "@/components/about/WhatWeDo";
 
 export default function AboutPage() {
     return (

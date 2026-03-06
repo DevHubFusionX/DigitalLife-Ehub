@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import TrainingsHero from "@/components/TrainingsHero";
-import TrainingModules from "@/components/TrainingModules";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
+import TrainingsHero from "@/components/trainings/TrainingsHero";
+import TrainingModules from "@/components/trainings/TrainingModules";
 
 export default function TrainingsPage() {
     return (
