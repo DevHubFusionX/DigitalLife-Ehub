@@ -29,10 +29,7 @@ const AboutHero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
                     >
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold uppercase tracking-[0.3em] mb-6 md:mb-8">
-                            <span className="w-1 h-1 rounded-full bg-accent animate-ping" />
-                            Our Vision
-                        </span>
+                        
                         <h1 className="text-[2.25rem] leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-8xl lg:leading-[1.05] font-light text-white mb-5 md:mb-10 tracking-tight">
                             Imagine having{" "}
                             <br className="hidden sm:block" />

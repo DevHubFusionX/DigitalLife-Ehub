@@ -40,9 +40,7 @@ const WhoWeAre = () => {
                     >
                         <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-primary/40 mb-4 md:mb-6 block">Our Identity</span>
                         <h2 className="text-[1.75rem] leading-tight sm:text-4xl md:text-5xl font-black text-primary mb-5 md:mb-8">
-                            We are more than{" "}
-                            <br className="hidden sm:block" />
-                            just consultants.
+                          Who We Are
                         </h2>
                         <p className="text-[15px] md:text-lg text-text-secondary leading-relaxed mb-8 md:mb-12 max-w-xl mx-auto lg:mx-0">
                             Digitalife Ehub is a business development and brand management firm focused on empowering MSMEs, SMEs, early-stage entrepreneurs, and informal businesses to build structured, scalable, and visible enterprises.

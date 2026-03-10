@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/components/shared/Preloader";
+import WhatsAppButton from "@/components/shared/WhatsAppButton";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${instrumentSans.variable} antialiased`}
       >
+        <Preloader />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

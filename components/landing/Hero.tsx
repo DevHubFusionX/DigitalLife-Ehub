@@ -38,12 +38,12 @@ const Hero = () => {
     const cardTap = { scale: 0.99 };
 
     return (
-        <section className="relative min-h-screen pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-hero-bg flex flex-col items-center">
+        <section className="relative min-h-screen pt-20 md:pt-36 pb-12 md:pb-24 overflow-hidden bg-hero-bg flex flex-col items-center">
             <div className="absolute inset-0 bg-linear-to-b from-white/5 via-transparent to-transparent pointer-events-none" aria-hidden />
             {/* Top Content */}
-            <div className="container-custom relative z-10 w-full text-center mb-14 md:mb-20">
+            <div className="container-custom relative z-10 w-full text-center mb-8 md:mb-20 px-4">
                 <div
-                    className="relative min-h-28 md:min-h-32 overflow-visible mb-6"
+                    className="relative min-h-[120px] md:min-h-32 overflow-visible mb-4 md:mb-6"
                     onMouseEnter={() => setHeadlinePaused(true)}
                     onMouseLeave={() => setHeadlinePaused(false)}
                 >
@@ -51,14 +51,14 @@ const Hero = () => {
                         <motion.h1
                             key={index}
                             {...fadeIn}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-text-on-dark leading-[1.1] max-w-4xl mx-auto text-center"
+                            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-text-on-dark leading-[1.15] max-w-4xl mx-auto text-center px-2"
                         >
                             {headlines[index][0]} <br /> {headlines[index][1]}
                         </motion.h1>
                     </AnimatePresence>
                 </div>
 
-                <div className="flex justify-center gap-2 mb-6">
+                <div className="flex justify-center gap-2 mb-4 md:mb-6">
                     {headlines.map((_, i) => (
                         <button
                             key={i}
@@ -75,7 +75,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="text-base md:text-lg text-text-on-dark-muted max-w-2xl mx-auto mb-8 md:mb-10 px-2"
+                    className="text-sm md:text-lg text-text-on-dark-muted max-w-2xl mx-auto mb-6 md:mb-10 px-4 leading-relaxed"
                 >
                     Gain clarity, boost your visibility, and build a strong operational structure <br className="hidden md:block" /> in 6–10 weeks with our hands-on business development support.
                 </motion.p>
@@ -87,11 +87,11 @@ const Hero = () => {
                 >
                     <button
                         type="button"
-                        className="flex items-center justify-between md:justify-center gap-3 w-full md:w-auto px-6 md:px-8 py-3.5 bg-accent text-primary font-bold rounded-full hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(254,219,84,0.4)] transition-all duration-200 text-sm sm:text-base md:text-lg group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-hero active:scale-[0.98]"
+                        className="flex items-center justify-between md:justify-center gap-2 md:gap-3 w-full md:w-auto px-5 md:px-8 py-3 md:py-3.5 bg-accent text-primary font-bold rounded-full hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(254,219,84,0.4)] transition-all duration-200 text-xs sm:text-sm md:text-lg group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-hero active:scale-[0.98]"
                     >
                         <span className="flex-1 md:flex-none">Book Your Free Growth Clarity Session</span>
-                        <span className="bg-primary text-white p-2 rounded-full group-hover:rotate-12 transition-transform duration-200 inline-flex items-center justify-center flex-shrink-0">
-                            <ArrowUpRight size={20} aria-hidden />
+                        <span className="bg-primary text-white p-1.5 md:p-2 rounded-full group-hover:rotate-12 transition-transform duration-200 inline-flex items-center justify-center flex-shrink-0">
+                            <ArrowUpRight size={16} className="md:w-5 md:h-5" aria-hidden />
                         </span>
                     </button>
                 </motion.div>
@@ -241,13 +241,13 @@ const Hero = () => {
             </motion.div>
 
             {/* Mobile Marquee */}
-            <div className="md:hidden relative w-full overflow-hidden py-4">
+            <div className="md:hidden relative w-full overflow-hidden py-6">
                 {/* Gradient Fades */}
-                <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-hero-bg to-transparent z-20 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-hero-bg to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-hero-bg to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-hero-bg to-transparent z-20 pointer-events-none" />
 
                 <motion.div
-                    className="flex gap-4 px-4 w-max"
+                    className="flex gap-3 px-2 w-max"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{
                         duration: 30,
@@ -256,14 +256,14 @@ const Hero = () => {
                     }}
                 >
                     {[...Array(2)].map((_, groupIndex) => (
-                        <div key={groupIndex} className="flex gap-4">
+                        <div key={groupIndex} className="flex gap-3">
                             {/* Card 1: MSMEs */}
-                            <div className="w-[280px] bg-card-dark rounded-[2rem] p-6 shadow-lg">
-                                <p className="text-text-on-dark-muted mb-4 text-xs font-bold uppercase tracking-widest">Target Audience</p>
-                                <h3 className="text-text-on-dark text-xl font-bold mb-4 italic">MSMEs & SMEs</h3>
+                            <div className="w-[240px] bg-card-dark rounded-[1.5rem] p-5 shadow-lg">
+                                <p className="text-text-on-dark-muted mb-3 text-[10px] font-bold uppercase tracking-widest">Target Audience</p>
+                                <h3 className="text-text-on-dark text-lg font-bold mb-3 italic">MSMEs & SMEs</h3>
                                 <div className="flex -space-x-2">
                                     {[1, 2, 3].map((i) => (
-                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-card-dark overflow-hidden">
+                                        <div key={i} className="w-7 h-7 rounded-full border-2 border-card-dark overflow-hidden">
                                             <img src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" />
                                         </div>
                                     ))}
@@ -271,36 +271,36 @@ const Hero = () => {
                             </div>
 
                             {/* Card 2: Growth Pillars */}
-                            <div className="w-[320px] bg-card-dark rounded-[2rem] p-6 shadow-lg">
-                                <h3 className="text-text-on-dark font-bold mb-4">Core Growth Pillars</h3>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-3 text-text-on-dark-muted text-xs">
+                            <div className="w-[260px] bg-card-dark rounded-[1.5rem] p-5 shadow-lg">
+                                <h3 className="text-text-on-dark font-bold mb-3 text-sm">Core Growth Pillars</h3>
+                                <ul className="space-y-2">
+                                    <li className="flex items-center gap-2 text-text-on-dark-muted text-[11px]">
                                         <div className="w-1.5 h-1.5 rounded-full bg-auth-sales" /> Business Strategy
                                     </li>
-                                    <li className="flex items-center gap-3 text-text-on-dark-muted text-xs">
+                                    <li className="flex items-center gap-2 text-text-on-dark-muted text-[11px]">
                                         <div className="w-1.5 h-1.5 rounded-full bg-auth-mail" /> Formalization
                                     </li>
-                                    <li className="flex items-center gap-3 text-text-on-dark-muted text-xs">
+                                    <li className="flex items-center gap-2 text-text-on-dark-muted text-[11px]">
                                         <div className="w-1.5 h-1.5 rounded-full bg-auth-flow" /> Brand Visibility
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Card 3: Impact */}
-                            <div className="w-[280px] bg-primary-light rounded-[2rem] p-6 shadow-lg border border-white/5">
-                                <h3 className="text-text-on-dark text-xl font-bold mb-4">Empowering <br /> People & Brands</h3>
-                                <div className="text-accent flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-                                    Impact Driven <ArrowUpRight size={14} />
+                            <div className="w-[240px] bg-primary-light rounded-[1.5rem] p-5 shadow-lg border border-white/5">
+                                <h3 className="text-text-on-dark text-lg font-bold mb-3">Empowering <br /> People & Brands</h3>
+                                <div className="text-accent flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+                                    Impact Driven <ArrowUpRight size={12} />
                                 </div>
                             </div>
 
                             {/* Card 4: Stats */}
-                            <div className="w-[280px] bg-accent rounded-[2rem] p-6 shadow-lg">
-                                <p className="text-primary font-bold text-xs mb-4">Accelerated Growth</p>
-                                <div className="flex items-end gap-2 h-12">
-                                    <div className="h-2/3 w-4 bg-primary/40 rounded-sm" />
-                                    <div className="h-full w-4 bg-primary rounded-sm" />
-                                    <div className="h-3/4 w-4 bg-primary/60 rounded-sm" />
+                            <div className="w-[240px] bg-accent rounded-[1.5rem] p-5 shadow-lg">
+                                <p className="text-primary font-bold text-[10px] mb-3">Accelerated Growth</p>
+                                <div className="flex items-end gap-1.5 h-10">
+                                    <div className="h-2/3 w-3 bg-primary/40 rounded-sm" />
+                                    <div className="h-full w-3 bg-primary rounded-sm" />
+                                    <div className="h-3/4 w-3 bg-primary/60 rounded-sm" />
                                 </div>
                             </div>
                         </div>

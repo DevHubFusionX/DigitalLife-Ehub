@@ -144,30 +144,7 @@ const Grow = () => {
                 </div>
 
                 {/* Process Steps */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="mt-12 md:mt-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-0"
-                >
-                    {[
-                        { num: "01", title: "Define", desc: "Clear business direction and target market alignment" },
-                        { num: "02", title: "Design", desc: "Operational frameworks and workflow systems setup" },
-                        { num: "03", title: "Implement", desc: "Hands-on implementation of growth strategies" },
-                        { num: "04", title: "Scale", desc: "Sustainable expansion and market leadership positioning" }
-                    ].map((step, i) => (
-                        <div key={i} className="relative p-6 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 md:border-white/5 group hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                            <div className="flex flex-col gap-3 md:gap-4">
-                                <div className="text-3xl md:text-5xl font-black text-accent/20 group-hover:text-accent/40 transition-colors uppercase tracking-widest leading-none">{step.num}</div>
-                                <div>
-                                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3 tracking-tight">{step.title}</h3>
-                                    <p className="text-sm text-text-on-dark-muted leading-relaxed font-medium md:font-semibold">{step.desc}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </motion.div>
+
 
             </div>
         </section>
