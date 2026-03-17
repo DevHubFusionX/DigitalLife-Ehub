@@ -6,9 +6,24 @@ import { Twitter, Linkedin, Github, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
     const links = {
-        Services: ["Business Strategy", "Formalization", "Social Media", "Operational Systems", "Web Design"],
-        Company: ["About Us", "Our Approach", "Impact", "Community"],
-        Legal: ["Privacy Policy", "Terms of Service"]
+        Services: [
+            { name: "Business Strategy", href: "/services" },
+            { name: "Formalization", href: "/services" },
+            { name: "Social Media", href: "/services" },
+            { name: "Operational Systems", href: "/services" },
+            { name: "Web Design", href: "/services" }
+        ],
+        Company: [
+            { name: "About Us", href: "/about" },
+            { name: "Community", href: "/community" },
+            { name: "Trainings", href: "/trainings" },
+            { name: "Contact Us", href: "/contact" }
+        ],
+        Legal: [
+            { name: "Privacy Policy", href: "/privacy" },
+            { name: "Terms of Service", href: "/terms" },
+            { name: "Cookie Policy", href: "/cookies" }
+        ]
     };
 
     return (
@@ -20,7 +35,7 @@ const Footer = () => {
                     <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <div className="flex items-center gap-2 mb-6">
                             <div className="bg-white/10 backdrop-blur-sm px-2.5 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
-                                <img src="/logo.svg" alt="Logo" className="h-7 w-auto md:h-8 brightness-0 invert" />
+                                <img src="/logo.svg" alt="Logo" className="h-7 w-auto md:h-8 " />
                                 <span className="text-base md:text-lg font-black tracking-tight flex items-center">
                                     <span className="text-white italic">DIGITALIFE</span>
                                     <span className="text-accent ml-1.5 font-bold">EHUB</span>
@@ -52,12 +67,12 @@ const Footer = () => {
                                 </h4>
                                 <ul className="space-y-3 md:space-y-4">
                                     {items.map((item) => (
-                                        <li key={item}>
+                                        <li key={item.name}>
                                             <Link
-                                                href="#"
+                                                href={item.href}
                                                 className="group text-sm font-medium text-white/50 hover:text-accent transition-colors flex items-center gap-1"
                                             >
-                                                {item}
+                                                {item.name}
                                                 <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </Link>
                                         </li>

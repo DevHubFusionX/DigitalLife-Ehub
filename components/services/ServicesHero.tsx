@@ -34,12 +34,7 @@ const ServicesHero = () => {
                             <p className="text-base md:text-xl text-text-secondary leading-relaxed font-medium max-w-lg">
                                 We don&apos;t just provide services; we build the frameworks that transform informal hustle into structured, visible enterprises.
                             </p>
-                            <div className="flex items-center gap-3 md:gap-4 text-primary/40">
-                                <Zap size={28} strokeWidth={1} className="md:w-10 md:h-10 shrink-0" />
-                                <span className="text-xs md:text-sm font-bold uppercase tracking-widest leading-tight">
-                                    Strategic Growth <br />Support
-                                </span>
-                            </div>
+                           
                         </div>
                     </motion.div>
                 </div>

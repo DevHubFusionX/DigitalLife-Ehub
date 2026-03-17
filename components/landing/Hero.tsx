@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Download, Plus, UserPlus } from "lucide-react";
+import { ArrowUpRight, Download, Plus } from "lucide-react";
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
@@ -10,8 +10,8 @@ const Hero = () => {
     const headlines = [
         ["From Hustle to", "Structured Growth"],
         ["Building People.", "Brands. Purpose."],
-        ["Move from Informal", "to Organized"],
-        ["Sustainable Growth", "Support"]
+        ["DigitalLife Ehub", "Ecosystem"],
+        ["Early Membership", "Exclusive Benefits"]
     ];
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const Hero = () => {
                     transition={{ delay: 0.2 }}
                     className="text-sm md:text-lg text-text-on-dark-muted max-w-2xl mx-auto mb-6 md:mb-10 px-4 leading-relaxed"
                 >
-                    Gain clarity, boost your visibility, and build a strong operational structure <br className="hidden md:block" /> in 6–10 weeks with our hands-on business development support.
+                    Discover the immediate benefits of joining our growth community. <br className="hidden md:block" /> Gain clarity, boost visibility, and build a strong structure in 6–10 weeks.
                 </motion.p>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -89,8 +89,8 @@ const Hero = () => {
                         type="button"
                         className="flex items-center justify-between md:justify-center gap-2 md:gap-3 w-full md:w-auto px-5 md:px-8 py-3 md:py-3.5 bg-accent text-primary font-bold rounded-full hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(254,219,84,0.4)] transition-all duration-200 text-xs sm:text-sm md:text-lg group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-hero active:scale-[0.98]"
                     >
-                        <span className="flex-1 md:flex-none">Book Your Free Growth Clarity Session</span>
-                        <span className="bg-primary text-white p-1.5 md:p-2 rounded-full group-hover:rotate-12 transition-transform duration-200 inline-flex items-center justify-center flex-shrink-0">
+                        <span className="flex-1 md:flex-none">Secure Your Founding Member Spot</span>
+                        <span className="bg-primary text-white p-1.5 md:p-2 rounded-full group-hover:rotate-12 transition-transform duration-200 inline-flex items-center justify-center shrink-0">
                             <ArrowUpRight size={16} className="md:w-5 md:h-5" aria-hidden />
                         </span>
                     </button>
@@ -112,7 +112,7 @@ const Hero = () => {
                         custom={0}
                         whileHover={cardHover}
                         whileTap={cardTap}
-                        className="bg-card-dark rounded-[2.5rem] p-8 relative overflow-hidden h-[300px] cursor-default shadow-lg hover:shadow-xl transition-shadow duration-200"
+                        className="bg-card-dark rounded-2xl p-8 relative overflow-hidden h-[300px] cursor-default shadow-lg hover:shadow-xl transition-shadow duration-200"
                     >
                         <div className="w-12 h-2 bg-white/20 rounded-full mb-8" />
                         <p className="text-text-on-dark-muted mb-6 text-sm">We don’t just advise — <br /> we build with you.</p>
@@ -150,7 +150,7 @@ const Hero = () => {
                         custom={1}
                         whileHover={cardHover}
                         whileTap={cardTap}
-                        className="bg-auth-web rounded-[2.5rem] relative overflow-hidden h-[400px] cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200 group"
+                        className="bg-auth-web rounded-2xl relative overflow-hidden h-[400px] cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200 group"
                     >
                         <img
                             src="/hero_person_portrait.png"
@@ -170,7 +170,7 @@ const Hero = () => {
                         custom={2}
                         whileHover={cardHover}
                         whileTap={cardTap}
-                        className="bg-card-dark rounded-[2.5rem] p-8 flex-1 flex flex-col justify-end min-h-[280px] shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default"
+                        className="bg-card-dark rounded-2xl p-8 flex-1 flex flex-col justify-end min-h-[280px] shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default"
                     >
                         <h3 className="text-text-on-dark text-xl font-bold mb-8">Our Core Growth Pillars</h3>
                         <div className="space-y-6">
@@ -200,7 +200,7 @@ const Hero = () => {
                         custom={3}
                         whileHover={cardHover}
                         whileTap={cardTap}
-                        className="bg-primary-light rounded-[2.5rem] p-8 h-[300px] flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default border border-white/5"
+                        className="bg-primary-light rounded-2xl p-8 h-[300px] flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default border border-white/5"
                     >
                         <h3 className="text-text-on-dark text-3xl font-bold leading-tight">Empowering <br /> People & <br /> Brands</h3>
                         <button
@@ -217,7 +217,7 @@ const Hero = () => {
                         custom={4}
                         whileHover={cardHover}
                         whileTap={cardTap}
-                        className="bg-accent rounded-[2.5rem] p-8 h-[400px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default"
+                        className="bg-accent rounded-2xl p-8 h-[400px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default"
                     >
                         <p className="text-primary font-bold text-sm mb-8">Accelerated <br /> Sustainable Business Growth</p>
                         <div className="mt-auto flex items-end justify-between h-48 px-2">
@@ -243,8 +243,8 @@ const Hero = () => {
             {/* Mobile Marquee */}
             <div className="md:hidden relative w-full overflow-hidden py-6">
                 {/* Gradient Fades */}
-                <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-hero-bg to-transparent z-20 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-hero-bg to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-y-0 left-0 w-12 bg-linear-to-r from-hero-bg to-transparent z-20 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-12 bg-linear-to-l from-hero-bg to-transparent z-20 pointer-events-none" />
 
                 <motion.div
                     className="flex gap-3 px-2 w-max"

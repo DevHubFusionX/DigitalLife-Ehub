@@ -2,41 +2,33 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Globe, Zap, BarChart3, ArrowRight } from "lucide-react";
+import { Mail, Zap, BarChart3, ArrowRight } from "lucide-react";
 
 const Features = () => {
     const products = [
         {
-            name: "Business Strategy",
-            focus: "Growth begins with direction and Stability",
-            desc: "We refine your vision and turn it into an actionable growth roadmap, defining your target market and value proposition.",
+            name: "Community Hub",
+            focus: "Your Central Command",
+            desc: "The central home for all members, providing daily updates, announcements, resources, and lively discussions to keep you informed.",
             icon: BarChart3,
-            stat: "Strategic",
+            stat: "Central",
             color: "var(--color-auth-sales)"
         },
         {
-            name: "MSME Formalization",
-            focus: "From informal hustle to structured enterprise",
-            desc: "Guidance on formalization, operational system design, workflow structuring, and SOP development.",
+            name: "Sub-Groups",
+            focus: "Find Your Tribe",
+            desc: "Dive into high-priority business circles tailored to your niche. Connect with like-minded professionals for specialized collaboration.",
             icon: Zap,
-            stat: "Structure",
+            stat: "Networking",
             color: "var(--color-auth-mail)"
         },
         {
-            name: "Social Media Management",
-            focus: "Visibility with structure — not noise",
-            desc: "Strategic brand positioning, structured posting systems, and brand-aligned storytelling that converts.",
+            name: "Mentorship Pairing",
+            focus: "Expert Guidance",
+            desc: "Access our exclusive system connecting you with vetted, high-profile mentors for professional growth and business clarity.",
             icon: Mail,
-            stat: "Visibility",
+            stat: "Guidance",
             color: "var(--color-auth-web)"
-        },
-        {
-            name: "Website Development",
-            focus: "Your digital storefront. Built to convert",
-            desc: "Custom designs and development for Ecommerce, Blogs, and Portfolios that reflect brand authority.",
-            icon: Globe,
-            stat: "Digital",
-            color: "var(--color-auth-flow)"
         }
     ];
 
@@ -50,10 +42,10 @@ const Features = () => {
                     className="max-w-2xl mb-12 md:mb-20"
                 >
                     <h2 className="text-3xl md:text-5xl font-black text-primary mb-4 leading-tight">
-                        Our Core Services.<br />Built for Scale.
+                        Key Features.<br />What You Gain Instantly.
                     </h2>
                     <p className="text-base md:text-lg text-text-secondary font-medium">
-                        Tailored business development support designed to move you from hustle to structured growth.
+                        Discover the immediate benefits of joining our community, designed to propel your business forward from day one.
                     </p>
                 </motion.div>
 

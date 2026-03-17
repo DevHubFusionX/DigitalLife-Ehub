@@ -44,12 +44,12 @@ const CommunityHero = () => {
 
                     {/* Hero Title — responsive asymmetric typography */}
                     <h1 className="text-[2.75rem] leading-[0.9] sm:text-6xl md:text-8xl lg:text-9xl font-black text-white md:leading-[0.85] tracking-tighter mb-10 md:mb-16 relative">
-                        People.
+                        DigitalLife.
                         <br />
                         <span className="text-accent italic font-serif ml-8 sm:ml-16 md:ml-40 block mt-1 md:mt-2">
-                            Brands.
+                            Ehub.
                         </span>
-                        <span className="block mt-1 md:mt-2">Purpose.</span>
+                        <span className="block mt-1 md:mt-2">Legacy.</span>
 
                         {/* Decorative floating icon */}
                         <motion.div
