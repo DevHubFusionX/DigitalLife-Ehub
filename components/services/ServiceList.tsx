@@ -3,8 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Target, FileText, Share2, Globe, Settings } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 
 const ServiceList = () => {
+    const { openModal } = useModal();
     const services = [
         {
             title: "Business Strategy & Clarity",
@@ -105,7 +107,10 @@ const ServiceList = () => {
                                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/30 block mb-1 md:mb-2">Outcome focus</span>
                                             <span className="text-xs md:text-sm font-bold text-primary">{service.stats}</span>
                                         </div>
-                                        <button className="group flex items-center gap-2 text-sm text-primary font-bold hover:text-accent transition-colors">
+                                        <button 
+                                            onClick={openModal}
+                                            className="group flex items-center gap-2 text-sm text-primary font-bold hover:text-accent transition-colors"
+                                        >
                                             Partner With Us
                                             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </button>

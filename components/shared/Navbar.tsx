@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import RegistrationModal from "../registration/RegistrationModal";
-import LoginModal from "../registration/LoginModal";
+import { ArrowRight } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 
 const NAV_LINKS = [
     { name: "Home", href: "/" },
@@ -19,8 +18,7 @@ const NAV_LINKS = [
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const { openModal } = useModal();
     const pathname = usePathname();
 
     const isLightHero = pathname === "/services" || pathname === "/trainings";
@@ -31,7 +29,9 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    useEffect(() => setIsOpen(false), [pathname]);
+    useEffect(() => {
+        if (isOpen) setIsOpen(false);
+    }, [pathname, isOpen]);
 
     useEffect(() => {
         document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -50,7 +50,7 @@ const Navbar = () => {
 
     const itemVariants = {
         hidden: { opacity: 0, x: -30 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const } },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
         exit: { opacity: 0, x: -20, transition: { duration: 0.2 } },
     };
 
@@ -82,11 +82,14 @@ const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button onClick={() => setIsLoginOpen(true)} className={`text-sm font-bold transition-all ${getTextColor()}`}>
+                        {/* <button onClick={() => {}} className={`text-sm font-bold transition-all ${getTextColor()}`}>
                             Sign In
-                        </button>
-                        <button onClick={() => setIsModalOpen(true)} className="px-4 xl:px-6 py-2.5 rounded-xl text-sm font-bold bg-accent text-primary hover:scale-105 hover:shadow-lg transition-all">
-                            Get Started
+                        </button> */}
+                        <button 
+                            onClick={openModal} 
+                            className="px-4 xl:px-6 py-2.5 rounded-xl text-sm font-bold bg-accent text-primary hover:scale-105 hover:shadow-lg transition-all"
+                        >
+                            Book Session
                         </button>
                     </nav>
 
@@ -166,23 +169,22 @@ const Navbar = () => {
                                     </ul>
                                 </motion.nav>
                                 <div className="p-4 border-t border-border-subtle">
-                                    <button
+                                    {/* <button
                                         onClick={() => {
                                             setIsOpen(false);
-                                            setIsLoginOpen(true);
                                         }}
                                         className="w-full py-3.5 border border-border-subtle text-primary text-sm font-bold rounded-xl hover:bg-gray-50 transition-all mb-2"
                                     >
                                         Sign In
-                                    </button>
+                                    </button> */}
                                     <button
                                         onClick={() => {
                                             setIsOpen(false);
-                                            setIsModalOpen(true);
+                                            openModal();
                                         }}
                                         className="w-full py-3.5 bg-primary text-white text-sm font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-all"
                                     >
-                                        Get Started
+                                        Book Session
                                         <ArrowRight size={16} />
                                     </button>
                                 </div>
@@ -191,17 +193,6 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
-
-            <RegistrationModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onSwitchToLogin={() => setIsLoginOpen(true)}
-            />
-            <LoginModal
-                isOpen={isLoginOpen}
-                onClose={() => setIsLoginOpen(false)}
-                onSwitchToRegister={() => setIsModalOpen(true)}
-            />
         </>
     );
 };

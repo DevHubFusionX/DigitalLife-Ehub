@@ -5,26 +5,42 @@ import Link from "next/link";
 import { Twitter, Linkedin, Github, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
-    const links = {
-        Services: [
-            { name: "Business Strategy", href: "/services" },
-            { name: "Formalization", href: "/services" },
-            { name: "Social Media", href: "/services" },
-            { name: "Operational Systems", href: "/services" },
-            { name: "Web Design", href: "/services" }
-        ],
-        Company: [
-            { name: "About Us", href: "/about" },
-            { name: "Community", href: "/community" },
-            { name: "Trainings", href: "/trainings" },
-            { name: "Contact Us", href: "/contact" }
-        ],
-        Legal: [
-            { name: "Privacy Policy", href: "/privacy" },
-            { name: "Terms of Service", href: "/terms" },
-            { name: "Cookie Policy", href: "/cookies" }
-        ]
-    };
+    const footerLinks = [
+        {
+            title: "Services",
+            items: [
+                { name: "Business Strategy", href: "/services" },
+                { name: "Formalization", href: "/services" },
+                { name: "Social Media", href: "/services" },
+                { name: "Operational Systems", href: "/services" },
+                { name: "Web Design", href: "/services" }
+            ]
+        },
+        {
+            title: "Company",
+            items: [
+                { name: "About Us", href: "/about" },
+                { name: "Our Approach", href: "/about" },
+                { name: "Impact", href: "/about" },
+                { name: "Community", href: "/community" }
+            ]
+        },
+        {
+            title: "Legal",
+            items: [
+                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Terms of Service", href: "/terms" }
+            ]
+        },
+        {
+            title: "Connect",
+            items: [
+                { name: "WhatsApp", href: "https://wa.me/2349083731989" },
+                { name: "Clarity Call", href: "https://selar.com/71g17u467o" },
+                { name: "Direct Line", href: "tel:09083731989" }
+            ]
+        }
+    ];
 
     return (
         <footer className="bg-primary border-t border-white/10">
@@ -35,7 +51,7 @@ const Footer = () => {
                     <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <div className="flex items-center gap-2 mb-6">
                             <div className="bg-white/10 backdrop-blur-sm px-2.5 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
-                                <img src="/logo.svg" alt="Logo" className="h-7 w-auto md:h-8 " />
+                                <img src="/logo.svg" alt="Logo" className="h-7 w-auto md:h-8" />
                                 <span className="text-base md:text-lg font-black tracking-tight flex items-center">
                                     <span className="text-white italic">DIGITALIFE</span>
                                     <span className="text-accent ml-1.5 font-bold">EHUB</span>
@@ -60,13 +76,13 @@ const Footer = () => {
 
                     {/* Links */}
                     <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-8">
-                        {Object.entries(links).map(([title, items]) => (
-                            <div key={title} className="flex flex-col items-start">
+                        {footerLinks.map((group) => (
+                            <div key={group.title} className="flex flex-col items-start">
                                 <h4 className="text-xs font-bold uppercase tracking-wider text-white/25 mb-5 md:mb-6">
-                                    {title}
+                                    {group.title}
                                 </h4>
                                 <ul className="space-y-3 md:space-y-4">
-                                    {items.map((item) => (
+                                    {group.items.map((item) => (
                                         <li key={item.name}>
                                             <Link
                                                 href={item.href}

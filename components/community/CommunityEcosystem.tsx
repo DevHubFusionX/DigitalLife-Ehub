@@ -2,18 +2,22 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Briefcase, Palette, TrendingUp } from "lucide-react";
+import { Users, Briefcase, Palette, TrendingUp, ShieldCheck } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 
 const CommunityEcosystem = () => {
+    const { openModal } = useModal();
     return (
         <section className="py-16 md:py-32 bg-white overflow-hidden">
             <div className="container-custom">
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-20 items-start lg:items-end mb-12 md:mb-24">
                     <div className="max-w-2xl">
-                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-primary/40 block mb-4 md:mb-6">Connect & Conquer</span>
+                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-primary/40 block mb-4 md:mb-6">Who belongs here</span>
                         <h2 className="text-[1.75rem] leading-tight sm:text-4xl md:text-6xl font-black text-primary md:leading-[1.1]">
-                            Specialized <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/40">Circles.</span>
+                            A diverse network{" "}
+                            <br className="hidden sm:block" />
+                            built on <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/40">shared growth.</span>
                         </h2>
                     </div>
                     <div className="lg:mb-4">
@@ -25,7 +29,7 @@ const CommunityEcosystem = () => {
 
                 {/* Masonry-style Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-8">
-                    {/* Circle 1: Service Providers */}
+                    {/* Segment 1: Large */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -36,9 +40,9 @@ const CommunityEcosystem = () => {
                             <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-6 md:mb-10 group-hover:scale-110 transition-transform duration-500">
                                 <Briefcase size={22} className="md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">Service Providers Circle</h3>
+                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">MSMEs &amp; SMEs</h3>
                             <p className="text-[13px] md:text-lg text-text-secondary leading-relaxed mb-6 md:mb-12 max-w-md">
-                                For coaches, consultants, designers, and marketers – ideal for networking, referrals, and joint venture partnerships.
+                                The heartbeat of our community. Small businesses transitioning from informal hustle to structured scaling through our growth frameworks.
                             </p>
                             <div className="mt-auto flex items-center gap-3 md:gap-4">
                                 <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-primary">Founders Circle</span>
@@ -47,7 +51,7 @@ const CommunityEcosystem = () => {
                         </div>
                     </motion.div>
 
-                    {/* Circle 2: Product Sellers */}
+                    {/* Segment 2: Medium */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -59,14 +63,14 @@ const CommunityEcosystem = () => {
                             <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-purple-600 text-white flex items-center justify-center mb-6 md:mb-10 group-hover:scale-110 transition-transform duration-500">
                                 <TrendingUp size={22} className="md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">Product Sellers Circle</h3>
+                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">Early-Stage Founders</h3>
                             <p className="text-[13px] md:text-base text-text-secondary leading-relaxed">
-                                For fashion vendors, skincare brands, food sellers – perfect for cross-promotion, bulk buying, and marketing.
+                                Visionaries building the foundations of tomorrow with purpose and strategic clarity.
                             </p>
                         </div>
                     </motion.div>
 
-                    {/* Circle 3: Tech & Digital */}
+                    {/* Segment 3: Medium */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -78,14 +82,14 @@ const CommunityEcosystem = () => {
                             <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-pink-600 text-white flex items-center justify-center mb-6 md:mb-10 group-hover:scale-110 transition-transform duration-500">
                                 <Palette size={22} className="md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">Tech & Digital Circle</h3>
+                            <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-6">Creative Partners</h3>
                             <p className="text-[13px] md:text-base text-text-secondary leading-relaxed">
-                                For developers, tech founders, and digital creators – enables project collaboration and product support.
+                                Designers and strategists who power the brand visibility pillar for our ecosystem.
                             </p>
                         </div>
                     </motion.div>
 
-                    {/* Circle 4 & 5 Combined/Large: Business & Creative */}
+                    {/* Segment 4: Large dark */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -98,12 +102,15 @@ const CommunityEcosystem = () => {
                             <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-accent text-primary flex items-center justify-center mb-6 md:mb-10 group-hover:scale-110 transition-transform duration-500">
                                 <Users size={22} className="md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-6 text-white">Business & Creative Circles</h3>
+                            <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-6">Impact Leaders</h3>
                             <p className="text-[13px] md:text-lg text-white/70 leading-relaxed mb-6 md:mb-12 max-w-md">
-                                For founders building structured companies and content creators fostering impactful collaborations within specific industries.
+                                Entrepreneurs committed to purpose-driven business development and building sustainable legacy.
                             </p>
-                            <button className="mt-auto self-start px-6 md:px-8 py-3 md:py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold uppercase tracking-widest transition-all active:scale-95">
-                                Join a Circle
+                            <button 
+                                onClick={openModal}
+                                className="mt-auto self-start px-6 md:px-8 py-3 md:py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold uppercase tracking-widest transition-all active:scale-95"
+                            >
+                                Join the Network
                             </button>
                         </div>
                     </motion.div>

@@ -99,9 +99,14 @@ const TrainingModules = () => {
                         <div className="absolute inset-0 bg-gradient-premium opacity-50" />
                         <div className="relative z-10">
                             <h3 className="text-xl md:text-3xl font-bold mb-5 md:mb-8 leading-tight">Ready to build your next level?</h3>
-                            <button className="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-white text-primary rounded-xl md:rounded-2xl font-bold uppercase tracking-widest text-[11px] md:text-xs hover:bg-accent transition-all active:scale-95">
+                            <a 
+                                href="https://wa.me/2349083731989"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-white text-primary rounded-xl md:rounded-2xl font-bold uppercase tracking-widest text-[11px] md:text-xs hover:bg-accent transition-all active:scale-95 inline-flex items-center justify-center"
+                            >
                                 Claim Free Consultation
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -47,14 +47,17 @@ const WhoWeAre = () => {
                         </p>
 
                         <div className="flex justify-center lg:justify-start">
-                            <motion.button
+                            <motion.a
+                                href="https://selar.com/71g17u467o"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white text-sm font-bold rounded-2xl shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all group active:scale-95"
                             >
                                 Book a 30 min Clarity Call
                                 <Calendar size={18} className="group-hover:rotate-12 transition-transform" />
-                            </motion.button>
+                            </motion.a>
                         </div>
                     </motion.div>
 

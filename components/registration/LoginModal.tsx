@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Eye, EyeOff, ArrowRight, ArrowLeft, RefreshCw, CheckCircle2 } from "lucide-react";
+import { X, Eye, EyeOff, ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface LoginModalProps {
@@ -26,7 +26,7 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
         console.log("Login:", { email, password });
         onClose();
         resetState();
-        router.push("/dashboard");
+        // router.push("/dashboard");
     };
 
     const handleForgot = (e: React.FormEvent) => {

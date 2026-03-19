@@ -6,90 +6,77 @@ import Footer from "@/components/shared/Footer";
 import { motion } from "framer-motion";
 
 const PrivacyPage = () => {
+    const lastUpdated = "March 19, 2026";
+    
     return (
         <main className="min-h-screen bg-white">
             <Navbar />
             
-            <section className="pt-32 pb-24 md:pt-48 md:pb-40">
-                <div className="container-custom px-4">
-                    <div className="max-w-4xl mx-auto">
-                        <motion.span 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-accent block mb-6"
-                        >
-                            Legal Documentation
-                        </motion.span>
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-6xl font-black text-primary mb-12"
-                        >
-                            Privacy <span className="text-accent italic font-serif">Policy.</span>
-                        </motion.h1>
-
-                        <motion.div 
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="prose prose-lg max-w-none text-text-secondary font-medium space-y-8"
-                        >
+            <section className="pt-32 pb-20 md:pt-48 md:pb-32">
+                <div className="container-custom max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-4xl md:text-6xl font-black text-primary mb-6 tracking-tight">Privacy Policy</h1>
+                        <p className="text-text-secondary mb-12">Last Updated: {lastUpdated}</p>
+                        
+                        <div className="prose prose-lg max-w-none text-text-secondary space-y-8">
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">1. Introduction</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">1. Introduction</h2>
                                 <p>
-                                    At DigitalLife Ehub, we value your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our website and use our services.
+                                    At DigitalLife Ehub, we value your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our website or use our services.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">2. Data We Collect</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">2. Information We Collect</h2>
                                 <p>
-                                    We collect information that you provide directly to us, such as when you create an account, subscribe to our newsletter, or communicate with us. This may include:
+                                    We may collect various types of information, including:
                                 </p>
-                                <ul className="list-disc pl-6 space-y-2 mt-4">
-                                    <li>Name and contact information</li>
-                                    <li>Account credentials</li>
-                                    <li>Payment information</li>
-                                    <li>Communications and interactions</li>
+                                <ul className="list-disc pl-6 mt-4 space-y-2">
+                                    <li><strong>Personal Information:</strong> Name, email address, phone number, and business details provided during consultation requests.</li>
+                                    <li><strong>Usage Data:</strong> Information on how you interact with our website, such as IP address, browser type, and pages visited.</li>
+                                    <li><strong>Cookies:</strong> Small data files stored on your device to improve your browsing experience.</li>
                                 </ul>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">3. How We Use Your Data</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">3. How We Use Your Information</h2>
                                 <p>
-                                    We use the information we collect to provide, maintain, and improve our services, communicate with you, and protect our rights. Specific uses include:
+                                    The information we collect is used to:
                                 </p>
-                                <ul className="list-disc pl-6 space-y-2 mt-4">
-                                    <li>Processing transactions and providing services</li>
-                                    <li>Sending technical notices and support messages</li>
-                                    <li>Responding to your comments and questions</li>
-                                    <li>Monitoring and analyzing trends and usage</li>
+                                <ul className="list-disc pl-6 mt-4 space-y-2">
+                                    <li>Provide and improve our business development and brand management services.</li>
+                                    <li>Communicate with you regarding your consultation requests and updates.</li>
+                                    <li>Analyze website performance and enhance user experience.</li>
+                                    <li>Comply with legal obligations.</li>
                                 </ul>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">4. Data Security</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">4. Data Security</h2>
                                 <p>
-                                    We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or alteration. However, no method of transmission over the internet is 100% secure.
+                                    We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet is 100% secure.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">5. Your Choices</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">5. Third-Party Services</h2>
                                 <p>
-                                    You have certain rights regarding your personal data, including the right to access, correct, or delete your information. You can also opt-out of receiving promotional communications from us.
+                                    We may use third-party tools (such as Selar for bookings) that have their own privacy policies. We encourage you to review their terms as well.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-2xl font-black text-primary mb-4">6. Contact Us</h2>
+                                <h2 className="text-2xl font-bold text-primary mb-4">6. Contact Us</h2>
                                 <p>
-                                    If you have any questions about this Privacy Policy, please contact us at support@digitallife-ehub.com.
+                                    If you have any questions about this Privacy Policy, please contact us via WhatsApp or phone at 09083731989.
                                 </p>
                             </section>
-                        </motion.div>
-                    </div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 

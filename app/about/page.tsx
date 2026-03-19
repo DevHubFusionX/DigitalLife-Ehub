@@ -13,7 +13,7 @@ export default function AboutPage() {
             <Navbar />
 
             <WhoWeAre />
-            ;<AboutHero />
+            <AboutHero />
 
             <WhatWeDo />
             <Footer />

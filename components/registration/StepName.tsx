@@ -40,11 +40,11 @@ const StepName = ({ onNext, initialValue }: StepNameProps) => {
                         exit={{ opacity: 0, y: -8 }}
                         className="text-2xl font-black text-white mb-1"
                     >
-                        Who are you?
+                        Tell us about yourself
                     </motion.h2>
                 )}
             </AnimatePresence>
-            <p className="text-white/30 text-sm mb-8">Tell us your name to personalize the experience.</p>
+            <p className="text-white/30 text-sm mb-8">We&apos;d love to know who we&apos;re speaking with.</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

@@ -1,19 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import StepName from "./StepName";
 import StepAccount from "./StepAccount";
-import StepVerification from "./StepVerification";
+import { CheckCircle2 } from "lucide-react";
 
-interface RegistrationModalProps {
+interface ConsultationModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSwitchToLogin?: () => void;
 }
 
-const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationModalProps) => {
+const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     const [step, setStep] = useState(1);
     const [direction, setDirection] = useState(1);
     const [formData, setFormData] = useState({
@@ -22,10 +21,25 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
         password: ""
     });
 
+    useEffect(() => {
+        if (!isOpen) {
+            setTimeout(() => {
+                setStep(1);
+                setDirection(1);
+                setFormData({ name: "", email: "", password: "" });
+            }, 500);
+        }
+    }, [isOpen]);
+
     const handleNextStep = (data: Partial<typeof formData>) => {
         setFormData(prev => ({ ...prev, ...data }));
         setDirection(1);
         setStep(prev => prev + 1);
+        
+        // If finishing step 2, we are essentially done
+        if (step === 2) {
+            console.log("Consultation Request Sent:", { ...formData, ...data });
+        }
     };
 
     const handleBackStep = () => {
@@ -33,17 +47,7 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
         setStep(prev => prev - 1);
     };
 
-    const handleComplete = (code: string) => {
-        console.log("Registration complete:", code, formData);
-        onClose();
-        setTimeout(() => {
-            setStep(1);
-            setDirection(1);
-            setFormData({ name: "", email: "", password: "" });
-        }, 500);
-    };
-
-    const stepLabels = ["Identity", "Credentials", "Verify"];
+    const stepLabels = ["Profile", "Contact"];
 
     return (
         <AnimatePresence>
@@ -62,7 +66,7 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 40, scale: 0.96 }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="relative w-full max-w-[460px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/[0.06]"
+                        className="relative w-full max-w-[460px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/6"
                     >
                         {/* Noise texture */}
                         <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
@@ -73,7 +77,7 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
                                 <div className="flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-accent" />
                                     <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">
-                                        Step {step} of 3
+                                        Consultation Request
                                     </span>
                                 </div>
                                 <button
@@ -85,18 +89,20 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
                             </div>
 
                             {/* Step indicator */}
-                            <div className="flex gap-1.5 mb-8">
-                                {stepLabels.map((label, i) => (
-                                    <div key={i} className="flex-1 flex flex-col gap-2">
-                                        <div className={`h-[3px] rounded-full transition-all duration-700 ${step > i + 1 ? "bg-accent" : step === i + 1 ? "bg-white" : "bg-white/[0.06]"
-                                            }`} />
-                                        <span className={`text-[9px] font-bold uppercase tracking-widest transition-colors duration-500 ${step >= i + 1 ? "text-white/40" : "text-white/10"
-                                            }`}>
-                                            {label}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
+                            {step <= 2 && (
+                                <div className="flex gap-1.5 mb-8">
+                                    {stepLabels.map((label, i) => (
+                                        <div key={i} className="flex-1 flex flex-col gap-2">
+                                            <div className={`h-[3px] rounded-full transition-all duration-700 ${step > i + 1 ? "bg-accent" : step === i + 1 ? "bg-white" : "bg-white/6"
+                                                }`} />
+                                            <span className={`text-[9px] font-bold uppercase tracking-widest transition-colors duration-500 ${step >= i + 1 ? "text-white/40" : "text-white/10"
+                                                }`}>
+                                                {label}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {/* Content */}
@@ -125,31 +131,28 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
                                         />
                                     )}
                                     {step === 3 && (
-                                        <StepVerification
-                                            email={formData.email}
-                                            onBack={handleBackStep}
-                                            onComplete={handleComplete}
-                                        />
+                                        <div className="w-full flex flex-col items-center justify-center py-8 text-center">
+                                            <motion.div
+                                                initial={{ scale: 0 }}
+                                                animate={{ scale: 1 }}
+                                                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                                                className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center mb-6 mx-auto"
+                                            >
+                                                <CheckCircle2 size={32} className="text-white" />
+                                            </motion.div>
+                                            <h2 className="text-xl font-black text-white mb-2">Request Sent.</h2>
+                                            <p className="text-white/30 text-xs font-medium">Our team will contact you shortly.</p>
+                                            
+                                            <button
+                                                onClick={onClose}
+                                                className="mt-8 px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm hover:bg-white/10 transition-all"
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
                                     )}
                                 </motion.div>
                             </AnimatePresence>
-
-                            {step === 1 && onSwitchToLogin && (
-                                <div className="mt-6 pt-5 border-t border-white/[0.04] text-center">
-                                    <p className="text-white/20 text-xs">
-                                        Already have an account?{" "}
-                                        <button
-                                            onClick={() => {
-                                                onClose();
-                                                setTimeout(onSwitchToLogin, 400);
-                                            }}
-                                            className="text-accent font-bold hover:text-accent/80 transition-colors"
-                                        >
-                                            Sign In
-                                        </button>
-                                    </p>
-                                </div>
-                            )}
                         </div>
                     </motion.div>
                 </div>
@@ -158,4 +161,4 @@ const RegistrationModal = ({ isOpen, onClose, onSwitchToLogin }: RegistrationMod
     );
 };
 
-export default RegistrationModal;
+export default ConsultationModal;

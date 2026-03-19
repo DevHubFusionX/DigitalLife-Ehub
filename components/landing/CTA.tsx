@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
 import { motion } from "framer-motion";
 
 const CTA = () => {
@@ -37,7 +37,7 @@ const CTA = () => {
                                 transition={{ delay: 0.1 }}
                                 className="text-4xl md:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tight"
                             >
-                                Join the Movement.<br className="hidden md:block" />Secure Your Spot.
+                                Move From Hustle<br className="hidden md:block" />to Growth.
                             </motion.h2>
 
                             {/* Subtext */}
@@ -48,7 +48,7 @@ const CTA = () => {
                                 transition={{ delay: 0.2 }}
                                 className="text-lg md:text-xl text-text-on-dark-muted mb-10 md:mb-12 leading-relaxed"
                             >
-                                Don&apos;t miss your chance to be part of the first 500 founding members. This is more than just a community; it&apos;s a movement of growth.
+                                Book your free Growth Consultation today. Let’s move you toward sustainable operations and visibility.
                             </motion.p>
 
                             {/* CTA Buttons */}
@@ -60,13 +60,18 @@ const CTA = () => {
                                 className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16"
                             >
                                 <button className="group px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2 active:scale-95">
-                                    Join Founding Tier
+                                    Book Free Consultation
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
 
-                                <button className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 active:scale-95">
+                                <a 
+                                    href="https://wa.me/2349083731989"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/10 active:scale-95 flex items-center justify-center"
+                                >
                                     Contact Team
-                                </button>
+                                </a>
                             </motion.div>
 
                             {/* Quick benefits */}
