@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useModal } from "@/context/ModalContext";
@@ -42,7 +42,7 @@ const Navbar = () => {
         return "text-white/70 hover:text-white";
     };
 
-    const menuVariants = {
+    const menuVariants: Variants = {
         hidden: { opacity: 0, x: "100%" },
         visible: { 
             opacity: 1, 
@@ -68,7 +68,7 @@ const Navbar = () => {
         },
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, x: 20 },
         visible: { 
             opacity: 1, 
