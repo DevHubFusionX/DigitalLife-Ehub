@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { useModal } from "@/context/ModalContext";
 
 const NAV_LINKS = [
@@ -38,8 +38,7 @@ const Navbar = () => {
     }, [isOpen]);
 
     const getTextColor = () => {
-        if (isScrolled || isLightHero) return "text-primary/60 hover:text-primary";
-        return "text-white/70 hover:text-white";
+        return "text-primary/60 hover:text-primary";
     };
 
     const menuVariants: Variants = {
@@ -89,16 +88,16 @@ const Navbar = () => {
 
     return (
         <>
-            <header className={`fixed inset-x-0 top-0 z-60 transition-all duration-500 ease-in-out ${
+            <header className={`fixed inset-x-0 top-0 z-60 transition-all duration-300 ease-in-out ${
                 isScrolled || isOpen
-                    ? "bg-white/90 backdrop-blur-xl border-b border-black/5 py-4" 
-                    : "bg-transparent py-5"
+                    ? "bg-white border-b border-black/5 py-4 shadow-sm" 
+                    : "bg-white py-5"
             }`}>
                 <div className="container-custom flex items-center justify-between">
                     <Link href="/" className="relative z-70">
                         <div className="flex items-center gap-2 group">
                             <img src="/logo.svg" alt="Logo" className="h-7 w-auto md:h-9 transition-transform duration-500 group-hover:scale-105" />
-                            <span className={`text-sm md:text-lg font-bold tracking-tight transition-colors duration-500 ${isScrolled || isLightHero || isOpen ? "text-primary" : "text-white"}`}>
+                            <span className={`text-sm md:text-lg font-bold tracking-tight transition-colors duration-500 text-primary`}>
                                 <span className="italic opacity-80">DIGITALIFE</span>
                                 <span className="ml-1 opacity-100 dark:text-accent">EHUB</span>
                             </span>
@@ -134,9 +133,7 @@ const Navbar = () => {
 
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`lg:hidden relative z-70 w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 active:scale-90 ${
-                            isOpen || isScrolled || isLightHero ? "text-primary bg-primary/5" : "text-white bg-white/10"
-                        }`}
+                        className={`lg:hidden relative z-70 w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 active:scale-90 text-primary bg-primary/5`}
                         aria-label="Toggle menu"
                     >
                         <div className="w-5 flex flex-col items-center gap-[4px]">
@@ -175,20 +172,38 @@ const Navbar = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="fixed top-0 right-0 bottom-0 w-[85%] max-w-[360px] z-100 bg-primary shadow-[-20px_0_80px_rgba(0,0,0,0.3)] lg:hidden flex flex-col"
+                            className="fixed top-0 right-0 bottom-0 w-[85%] max-w-[360px] z-100 bg-white shadow-[-20px_0_80px_rgba(0,0,0,0.3)] lg:hidden flex flex-col"
                         >
-                            <div className="px-8 py-24 flex flex-col h-full">
+                            <div className="p-6 flex items-center justify-between border-b border-black/5">
+                                <div className="flex items-center gap-2">
+                                    <img src="/logo.svg" alt="Logo" className="h-6 w-auto" />
+                                    <span className="text-xs font-black tracking-tight text-primary">EHUB</span>
+                                </div>
+                                <button 
+                                    onClick={() => setIsOpen(false)}
+                                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/5 text-primary active:scale-90 transition-transform"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+                            <div className="px-8 py-12 flex flex-col h-full overflow-y-auto">
                                 <div className="space-y-6 mb-auto">
-                                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 block mb-10">Navigation</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary/30 block mb-10">Navigation</span>
                                     {NAV_LINKS.map((link) => (
                                         <motion.div key={link.name} variants={itemVariants}>
                                             <Link
                                                 href={link.href}
-                                                className={`text-2xl font-bold tracking-tight transition-all block ${
-                                                    pathname === link.href ? "text-accent" : "text-white/60 hover:text-white"
+                                                className={`text-2xl font-bold tracking-tight transition-all flex items-center justify-between group/link ${
+                                                    pathname === link.href ? "text-accent" : "text-primary/60 hover:text-primary"
                                                 }`}
                                             >
-                                                {link.name}
+                                                <span>{link.name}</span>
+                                                {pathname === link.href && (
+                                                    <motion.div 
+                                                        layoutId="active-dot"
+                                                        className="w-1.5 h-1.5 rounded-full bg-accent"
+                                                    />
+                                                )}
                                             </Link>
                                         </motion.div>
                                     ))}
@@ -196,7 +211,7 @@ const Navbar = () => {
 
                                 <motion.div variants={itemVariants} className="mt-auto space-y-12">
                                     <div className="space-y-4">
-                                        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 block">Connect</span>
+                                        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary/30 block">Connect</span>
                                         <div className="grid grid-cols-1 gap-3">
                                             <a 
                                                 href="https://wa.me/2349083731989" 
@@ -204,7 +219,7 @@ const Navbar = () => {
                                                 rel="noopener noreferrer"
                                                 className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all group"
                                             >
-                                                <span className="text-sm font-bold text-white/80">WhatsApp Team</span>
+                                                <span className="text-sm font-bold text-primary/80">WhatsApp Team</span>
                                                 <ArrowRight size={14} className="text-white/20 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                                             </a>
                                             <a 
@@ -213,7 +228,7 @@ const Navbar = () => {
                                                 rel="noopener noreferrer"
                                                 className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all group"
                                             >
-                                                <span className="text-sm font-bold text-white/80">Book Clarity Call</span>
+                                                <span className="text-sm font-bold text-primary/80">Book Clarity Call</span>
                                                 <ArrowRight size={14} className="text-white/20 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                                             </a>
                                         </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Download, Plus, UserPlus } from "lucide-react";
+import { BadgeCheck, Play, Users, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
@@ -38,7 +38,7 @@ const Hero = () => {
     const cardTap = { scale: 0.99 };
 
     return (
-        <section className="relative min-h-[100dvh] pt-32 md:pt-36 pb-12 md:pb-24 overflow-hidden bg-hero-bg flex flex-col items-center">
+        <section className="relative min-h-[100dvh] pt-20 md:pt-36 pb-12 md:pb-24 overflow-x-hidden bg-hero-bg flex flex-col items-center justify-center">
             <div className="absolute inset-0 bg-linear-to-b from-white/5 via-transparent to-transparent pointer-events-none" aria-hidden />
             {/* Top Content */}
             <div className="container-custom relative z-10 w-full text-center mb-8 md:mb-20 px-4">

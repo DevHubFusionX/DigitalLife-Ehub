@@ -6,7 +6,7 @@ import { Users, Globe, Heart } from "lucide-react";
 
 const CommunityHero = () => {
     return (
-        <section className="relative min-h-screen pt-28 md:pt-40 pb-16 md:pb-20 bg-primary overflow-hidden flex items-center">
+        <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-20 bg-primary overflow-x-hidden flex items-center text-center md:text-left">
             {/* Floating ambient blobs — fewer on mobile */}
             <div className="absolute inset-0 pointer-events-none">
                 {[...Array(4)].map((_, i) => (

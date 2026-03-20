@@ -8,7 +8,7 @@ const TrainingsHero = () => {
     const tags = ["Practical", "Strategic", "Tailored"];
 
     return (
-        <section className="relative pt-36 md:pt-40 pb-12 md:pb-24 bg-white overflow-hidden">
+        <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-24 bg-white overflow-hidden flex items-center">
             {/* Background Aesthetic */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50/50 -skew-x-12 translate-x-1/4 pointer-events-none hidden md:block" />
 

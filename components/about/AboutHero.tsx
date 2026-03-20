@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const AboutHero = () => {
@@ -14,7 +13,7 @@ const AboutHero = () => {
     ];
 
     return (
-        <section className="relative min-h-screen pt-40 md:pt-40 pb-16 md:pb-32 overflow-hidden bg-primary flex flex-col justify-center">
+        <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-32 overflow-hidden bg-primary flex flex-col justify-center">
             {/* Ambient Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(254,219,84,0.05)_0%,transparent_70%)]" />
