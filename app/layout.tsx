@@ -32,9 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <body
-        className={`${inter.variable} ${instrumentSans.variable} antialiased`}
+        className={`${inter.variable} ${instrumentSans.variable} antialiased overflow-x-hidden max-w-[100vw]`}
       >
         <ModalProvider>
           <Preloader />

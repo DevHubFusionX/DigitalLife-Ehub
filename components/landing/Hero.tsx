@@ -38,7 +38,7 @@ const Hero = () => {
     const cardTap = { scale: 0.99 };
 
     return (
-        <section className="relative min-h-screen pt-20 md:pt-36 pb-12 md:pb-24 overflow-hidden bg-hero-bg flex flex-col items-center">
+        <section className="relative min-h-[100dvh] pt-32 md:pt-36 pb-12 md:pb-24 overflow-hidden bg-hero-bg flex flex-col items-center">
             <div className="absolute inset-0 bg-linear-to-b from-white/5 via-transparent to-transparent pointer-events-none" aria-hidden />
             {/* Top Content */}
             <div className="container-custom relative z-10 w-full text-center mb-8 md:mb-20 px-4">

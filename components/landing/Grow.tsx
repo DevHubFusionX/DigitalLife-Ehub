@@ -118,7 +118,7 @@ const Grow = () => {
                 {/* Mobile Logic Flow Diagram - Vertical List */}
                 <div className="md:hidden space-y-8 mb-20 relative px-4">
                     {/* Vertical Connection Line */}
-                    <div className="absolute left-[39px] top-6 bottom-6 w-px bg-accent/20 border-l border-dashed border-accent/40" />
+                    <div className="absolute left-[32px] top-6 bottom-6 w-px bg-accent/20 border-l border-dashed border-accent/40" />
 
                     {nodes.map((node, index) => {
                         const Icon = node.icon;
@@ -131,7 +131,7 @@ const Grow = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="relative flex items-start gap-4"
                             >
-                                <div className="relative z-10 flex-shrink-0 w-8 h-8 md:w-12 md:h-12 bg-white rounded-full border-2 border-primary flex items-center justify-center shadow-md">
+                                <div className="relative z-10 flex-shrink-0 w-8 h-8 bg-white rounded-full border-2 border-primary flex items-center justify-center shadow-md">
                                     <Icon size={16} className="text-primary" />
                                 </div>
                                 <div className="flex-1 bg-white/10 border border-white/20 p-4 rounded-xl backdrop-blur-md shadow-lg">

@@ -6,7 +6,7 @@ import { Zap } from "lucide-react";
 
 const ServicesHero = () => {
     return (
-        <section className="relative pt-24 md:pt-40 pb-12 md:pb-20 bg-white overflow-hidden">
+        <section className="relative pt-36 md:pt-40 pb-12 md:pb-20 bg-white overflow-hidden">
             {/* Background Texture/Pattern */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />

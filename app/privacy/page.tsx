@@ -12,7 +12,7 @@ const PrivacyPage = () => {
         <main className="min-h-screen bg-white">
             <Navbar />
             
-            <section className="pt-32 pb-20 md:pt-48 md:pb-32">
+            <section className="pt-40 pb-20 md:pt-48 md:pb-32">
                 <div className="container-custom max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
