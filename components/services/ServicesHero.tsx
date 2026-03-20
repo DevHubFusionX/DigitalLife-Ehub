@@ -2,13 +2,23 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Zap } from "lucide-react";
 
 const ServicesHero = () => {
     return (
         <section className="relative min-h-dvh pt-20 md:pt-40 pb-12 md:pb-20 bg-white overflow-hidden flex items-center">
+            {/* Background Image Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.1] grayscale pointer-events-none">
+                <Image 
+                    src="/images/service-hero.jfif" 
+                    alt="Services Background" 
+                    fill 
+                    className="object-cover"
+                />
+            </div>
             {/* Background Texture/Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-1"
                 style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
             <div className="container-custom relative z-10">

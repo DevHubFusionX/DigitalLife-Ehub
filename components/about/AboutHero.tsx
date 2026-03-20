@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const AboutHero = () => {
@@ -14,8 +15,17 @@ const AboutHero = () => {
 
     return (
         <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-32 overflow-hidden bg-primary flex flex-col justify-center">
+            {/* Background Image Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.15] grayscale pointer-events-none">
+                <Image 
+                    src="/images/About-hero.jfif" 
+                    alt="About Background" 
+                    fill 
+                    className="object-cover"
+                />
+            </div>
             {/* Ambient Background */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none z-1">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(254,219,84,0.05)_0%,transparent_70%)]" />
                 <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             </div>

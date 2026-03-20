@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Database, Cpu, Network, Workflow } from "lucide-react";
 
 const Grow = () => {
@@ -15,9 +16,19 @@ const Grow = () => {
     return (
         <section className="relative bg-problem-bg py-32 lg:py-48 overflow-hidden">
 
+            {/* Background Image Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.15] grayscale">
+                <Image 
+                    src="/images/grow.jfif" 
+                    alt="Growth Background" 
+                    fill 
+                    className="object-cover"
+                />
+            </div>
+
             {/* Grid Background */}
             <div
-                className="absolute inset-0 opacity-[0.03]"
+                className="absolute inset-0 opacity-[0.03] z-1"
                 style={{
                     backgroundImage: `
                         linear-gradient(to right, var(--color-primary) 1px, transparent 1px),

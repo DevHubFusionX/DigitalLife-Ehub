@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Mail, Globe, Zap, BarChart3, ArrowRight } from "lucide-react";
 
 const Features = () => {
@@ -41,8 +42,17 @@ const Features = () => {
     ];
 
     return (
-        <section id="services" className="py-32 bg-features-bg">
-            <div className="container-custom px-4 md:px-0">
+        <section id="services" className="relative py-32 bg-features-bg overflow-hidden">
+            {/* Background Image Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.1] grayscale pointer-events-none">
+                <Image 
+                    src="/images/features.jfif" 
+                    alt="Features Background" 
+                    fill 
+                    className="object-cover"
+                />
+            </div>
+            <div className="container-custom relative z-10 px-4 md:px-0">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

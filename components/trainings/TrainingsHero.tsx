@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { BookOpen, GraduationCap } from "lucide-react";
 
 const TrainingsHero = () => {
@@ -9,8 +10,17 @@ const TrainingsHero = () => {
 
     return (
         <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-24 bg-white overflow-hidden flex items-center">
+            {/* Background Image Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.15] grayscale pointer-events-none">
+                <Image 
+                    src="/images/tranning.jfif" 
+                    alt="Trainings Background" 
+                    fill 
+                    className="object-cover"
+                />
+            </div>
             {/* Background Aesthetic */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50/50 -skew-x-12 translate-x-1/4 pointer-events-none hidden md:block" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50/50 -skew-x-12 translate-x-1/4 pointer-events-none hidden md:block z-1" />
 
             <div className="container-custom relative z-10">
                 <div className="max-w-4xl">

@@ -2,6 +2,24 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import SolutionBlock from "./SolutionBlock";
+
+const SOLUTIONS = [
+    {
+        number: "01",
+        title: "Clarity",
+        description: "Know exactly what you offer, who you serve, and how you grow with our strategic development support.",
+        image: "/images/solution1.jfif",
+        isReversed: false
+    },
+    {
+        number: "02",
+        title: "Structure",
+        description: "Move from informal operations to organized systems that scale. We eliminate operational chaos through SOPs and workflows.",
+        image: "/images/solution2.jfif",
+        isReversed: true
+    }
+];
 
 const Solution = () => {
     const fadeUp = {
@@ -12,9 +30,8 @@ const Solution = () => {
     };
 
     return (
-        <section className="relative bg-solution-bg py-32 lg:py-48">
+        <section className="relative bg-solution-bg py-32 lg:py-48 overflow-hidden">
             <div className="container-custom">
-
                 {/* Asymmetric Header */}
                 <div className="max-w-5xl mb-16 md:mb-32">
                     <motion.div {...fadeUp} className="flex items-start gap-6 md:gap-12 mb-8">
@@ -31,54 +48,17 @@ const Solution = () => {
 
                 {/* Staggered Content Blocks */}
                 <div className="space-y-24 md:space-y-48">
-
-                    {/* Block 1 - Focus: Clarity */}
-                    <motion.div
-                        {...fadeUp}
-                        transition={{ delay: 0.2, duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
-                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-center"
-                    >
-                        <div className="lg:col-span-5 lg:col-start-1">
-                            <div className="space-y-6">
-                                <div className="inline-block px-4 py-1.5 bg-primary/5 rounded-full">
-                                    <span className="text-xs tracking-wider text-primary/60 font-bold">01</span>
-                                </div>
-                                <h3 className="text-3xl lg:text-4xl font-light text-primary leading-tight">
-                                    Clarity
-                                </h3>
-                                <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md">
-                                    Know exactly what you offer, who you serve, and how you grow with our strategic development support.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="lg:col-span-6 lg:col-start-7">
-                            <div className="aspect-[16/10] lg:aspect-[4/3] bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl" />
-                        </div>
-                    </motion.div>
-
-                    {/* Block 2 - Focus: Structure */}
-                    <motion.div
-                        {...fadeUp}
-                        transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
-                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-center"
-                    >
-                        <div className="lg:col-span-6 lg:col-start-1 order-2 lg:order-1">
-                            <div className="aspect-[16/10] lg:aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 rounded-3xl" />
-                        </div>
-                        <div className="lg:col-span-5 lg:col-start-8 order-1 lg:order-2">
-                            <div className="space-y-6">
-                                <div className="inline-block px-4 py-1.5 bg-primary/5 rounded-full">
-                                    <span className="text-xs tracking-wider text-primary/60 font-bold">02</span>
-                                </div>
-                                <h3 className="text-3xl lg:text-4xl font-light text-primary leading-tight">
-                                    Structure
-                                </h3>
-                                <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md">
-                                    Move from informal operations to organized systems that scale. We eliminate operational chaos through SOPs and workflows.
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
+                    {SOLUTIONS.map((item, i) => (
+                        <SolutionBlock 
+                            key={item.number} 
+                            number={item.number}
+                            title={item.title}
+                            description={item.description}
+                            image={item.image}
+                            isReversed={item.isReversed}
+                            index={i}
+                        />
+                    ))}
 
                     {/* Block 3 - Focus: Visibility & Stats */}
                     <motion.div
@@ -93,7 +73,7 @@ const Solution = () => {
                             <h3 className="text-3xl lg:text-5xl font-light text-primary leading-tight">
                                 Visibility
                             </h3>
-                            <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto px-4">
+                            <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto px-4 font-medium">
                                 Position your brand to attract opportunities, customers, and partnerships.
                                 Because when clarity meets structure, visibility follows.
                             </p>
@@ -117,9 +97,7 @@ const Solution = () => {
                             </div>
                         </div>
                     </motion.div>
-
                 </div>
-
             </div>
         </section>
     );

@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BadgeCheck, Play, Users, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Plus } from "lucide-react";
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
@@ -130,8 +131,8 @@ const Hero = () => {
                         <div className="flex items-center gap-4">
                             <div className="flex -space-x-3">
                                 {[1, 2, 3].map((i) => (
-                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-card-dark overflow-hidden bg-white/10">
-                                        <img src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" />
+                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-card-dark overflow-hidden bg-white/10 relative">
+                                        <Image fill src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" className="object-cover" />
                                     </div>
                                 ))}
                                 <div className="w-10 h-10 rounded-full border-2 border-card-dark bg-primary flex items-center justify-center text-white">
@@ -152,10 +153,11 @@ const Hero = () => {
                         whileTap={cardTap}
                         className="bg-auth-web rounded-[2.5rem] relative overflow-hidden h-[400px] cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200 group"
                     >
-                        <img
+                        <Image
                             src="/hero_person_portrait.png"
-                            alt=""
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 opacity-80"
+                            alt="DigitalLife Hero"
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105 opacity-80"
                         />
                         <div className="absolute top-6 right-6 w-12 h-12 bg-white text-auth-web rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
                             <ArrowUpRight size={22} />
@@ -263,8 +265,8 @@ const Hero = () => {
                                 <h3 className="text-text-on-dark text-lg font-bold mb-3 italic">MSMEs & SMEs</h3>
                                 <div className="flex -space-x-2">
                                     {[1, 2, 3].map((i) => (
-                                        <div key={i} className="w-7 h-7 rounded-full border-2 border-card-dark overflow-hidden">
-                                            <img src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" />
+                                        <div key={i} className="w-7 h-7 rounded-full border-2 border-card-dark overflow-hidden relative">
+                                            <Image fill src={`https://i.pravatar.cc/100?img=${10 + i}`} alt="" className="object-cover" />
                                         </div>
                                     ))}
                                 </div>
