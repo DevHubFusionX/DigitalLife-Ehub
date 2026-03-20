@@ -13,7 +13,7 @@ const TrainingsHero = () => {
             {/* Background Image Texture */}
             <div className="absolute inset-0 z-0 opacity-[0.15] grayscale pointer-events-none">
                 <Image 
-                    src="/images/tranning.jfif" 
+                    src="/images/training.jpg" 
                     alt="Trainings Background" 
                     fill 
                     className="object-cover"

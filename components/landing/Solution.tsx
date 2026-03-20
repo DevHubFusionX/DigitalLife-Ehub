@@ -9,14 +9,14 @@ const SOLUTIONS = [
         number: "01",
         title: "Clarity",
         description: "Know exactly what you offer, who you serve, and how you grow with our strategic development support.",
-        image: "/images/solution1.jfif",
+        image: "/images/solution1.jpg",
         isReversed: false
     },
     {
         number: "02",
         title: "Structure",
         description: "Move from informal operations to organized systems that scale. We eliminate operational chaos through SOPs and workflows.",
-        image: "/images/solution2.jfif",
+        image: "/images/solution2.jpg",
         isReversed: true
     }
 ];

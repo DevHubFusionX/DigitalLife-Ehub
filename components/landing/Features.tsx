@@ -46,7 +46,7 @@ const Features = () => {
             {/* Background Image Texture */}
             <div className="absolute inset-0 z-0 opacity-[0.1] grayscale pointer-events-none">
                 <Image 
-                    src="/images/features.jfif" 
+                    src="/images/features.jpg" 
                     alt="Features Background" 
                     fill 
                     className="object-cover"

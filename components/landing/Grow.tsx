@@ -19,7 +19,7 @@ const Grow = () => {
             {/* Background Image Texture */}
             <div className="absolute inset-0 z-0 opacity-[0.15] grayscale">
                 <Image 
-                    src="/images/grow.jfif" 
+                    src="/images/grow.jpg" 
                     alt="Growth Background" 
                     fill 
                     className="object-cover"

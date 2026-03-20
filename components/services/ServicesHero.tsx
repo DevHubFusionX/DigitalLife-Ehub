@@ -11,7 +11,7 @@ const ServicesHero = () => {
             {/* Background Image Texture */}
             <div className="absolute inset-0 z-0 opacity-[0.1] grayscale pointer-events-none">
                 <Image 
-                    src="/images/service-hero.jfif" 
+                    src="/images/service-hero.jpg" 
                     alt="Services Background" 
                     fill 
                     className="object-cover"
