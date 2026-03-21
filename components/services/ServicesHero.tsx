@@ -9,12 +9,13 @@ const ServicesHero = () => {
     return (
         <section className="relative min-h-dvh pt-20 md:pt-40 pb-12 md:pb-20 bg-white overflow-hidden flex items-center">
             {/* Background Image Texture */}
-            <div className="absolute inset-0 z-0 opacity-[0.1] grayscale pointer-events-none">
+            <div className="absolute inset-0 z-0 opacity-[0.3] pointer-events-none">
                 <Image 
-                    src="/images/service-hero.jpg" 
+                    src="/images/service-hero.png" 
                     alt="Services Background" 
                     fill 
                     className="object-cover"
+                    priority
                 />
             </div>
             {/* Background Texture/Pattern */}

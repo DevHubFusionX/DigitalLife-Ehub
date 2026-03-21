@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, Globe, Zap, BarChart3, ArrowRight } from "lucide-react";
 
 const Features = () => {
@@ -99,10 +100,10 @@ const Features = () => {
                                     {product.desc}
                                 </p>
 
-                                <button className="group/btn flex items-center gap-2 text-sm font-bold text-primary/40 hover:text-primary hover:gap-3 transition-all">
+                                <Link href="/services" className="group/btn flex items-center gap-2 text-sm font-bold text-primary/40 hover:text-primary hover:gap-3 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm">
                                     Details
                                     <ArrowRight size={14} />
-                                </button>
+                                </Link>
                             </motion.div>
                         );
                     })}

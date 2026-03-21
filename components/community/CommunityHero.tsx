@@ -2,11 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Globe, Heart } from "lucide-react";
+import { Users, Globe, Heart, ArrowRight } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 
 const CommunityHero = () => {
+    const { openModal } = useModal();
     return (
-        <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-20 bg-primary overflow-x-hidden flex items-center text-center md:text-left">
+        <section className="relative min-h-dvh pt-20 md:pt-40 pb-16 md:pb-20 bg-primary overflow-x-hidden flex items-center text-left">
             {/* Floating ambient blobs — fewer on mobile */}
             <div className="absolute inset-0 pointer-events-none">
                 {[...Array(4)].map((_, i) => (
@@ -39,7 +41,7 @@ const CommunityHero = () => {
                     className="max-w-5xl"
                 >
                     <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-accent text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12">
-                        The Ecosystem
+                        Visibility clan
                     </span>
 
                     {/* Hero Title — responsive asymmetric typography */}
@@ -62,9 +64,69 @@ const CommunityHero = () => {
                     </h1>
 
                     <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-start">
-                        <p className="text-base md:text-2xl text-white/50 leading-relaxed font-light">
-                            Digitalife Ehub isn&apos;t just a firm; it&apos;s a thriving network of ambitious MSMEs and SMEs committed to building something that lasts.
-                        </p>
+                        <div className="flex flex-col gap-8 md:gap-12">
+                            <p className="text-base md:text-2xl text-white/50 leading-relaxed font-light">
+                                Digitalife Ehub isn&apos;t just a firm; it&apos;s a thriving network of ambitious MSMEs and SMEs committed to building something that lasts.
+                            </p>
+                            
+                            <motion.div
+                                animate={{ y: [0, -6, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                                <motion.button
+                                    onClick={openModal}
+                                    initial="hidden"
+                                    animate="visible"
+                                    whileHover="hover"
+                                    whileTap="tap"
+                                    variants={{
+                                        hidden: { opacity: 0, scale: 0.8 },
+                                        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] } },
+                                        tap: { scale: 0.95 }
+                                    }}
+                                    className="group relative px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-sm md:text-base tracking-widest uppercase w-fit bg-accent text-primary overflow-hidden shadow-[0_0_40px_rgba(254,219,84,0.3)] hover:shadow-[0_4px_40px_rgba(254,219,84,0.6)] transition-shadow duration-500"
+                                >
+                                    {/* Geometric hover sweep background */}
+                                    <motion.div 
+                                        className="absolute inset-0 bg-primary rounded-full origin-bottom"
+                                        variants={{
+                                            hidden: { scaleY: 0, borderRadius: "100%" },
+                                            visible: { scaleY: 0, borderRadius: "100%" },
+                                            hover: { scaleY: 1.5, borderRadius: "0%" }
+                                        }}
+                                        transition={{ duration: 0.5, ease: [0.7, 0, 0.2, 1] }}
+                                    />
+                                    
+                                    <div className="relative z-10 overflow-hidden">
+                                        {/* Default state content */}
+                                        <motion.div
+                                            variants={{
+                                                hidden: { y: "100%", opacity: 0 },
+                                                visible: { y: "0%", opacity: 1, transition: { duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] } },
+                                                hover: { y: "-150%", opacity: 0, transition: { duration: 0.4, ease: [0.7, 0, 0.2, 1] } }
+                                            }}
+                                            className="flex items-center gap-3"
+                                        >
+                                            <span>JOIN NOW</span>
+                                            <ArrowRight size={18} strokeWidth={3} />
+                                        </motion.div>
+                                        
+                                        {/* Hover state content */}
+                                        <motion.div
+                                            variants={{
+                                                hidden: { y: "150%", opacity: 0 },
+                                                visible: { y: "150%", opacity: 0 },
+                                                hover: { y: "0%", opacity: 1, transition: { duration: 0.4, ease: [0.7, 0, 0.2, 1] } }
+                                            }}
+                                            className="absolute inset-0 flex items-center justify-center gap-3 text-accent"
+                                        >
+                                            <span>JOIN NOW</span>
+                                            <ArrowRight size={18} strokeWidth={3} className="text-accent" />
+                                        </motion.div>
+                                    </div>
+                                </motion.button>
+                            </motion.div>
+                        </div>
 
                         <div className="space-y-5 md:space-y-8">
                             <div className="flex items-center gap-4 md:gap-6 group">

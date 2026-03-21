@@ -4,8 +4,12 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Plus } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+    const { openModal } = useModal();
+    const router = useRouter();
     const [index, setIndex] = useState(0);
     const [headlinePaused, setHeadlinePaused] = useState(false);
     const headlines = [
@@ -88,6 +92,7 @@ const Hero = () => {
                 >
                     <button
                         type="button"
+                        onClick={openModal}
                         className="flex items-center justify-between md:justify-center gap-2 md:gap-3 w-full md:w-auto px-5 md:px-8 py-3 md:py-3.5 bg-accent text-primary font-bold rounded-full hover:scale-[1.04] hover:shadow-[0_8px_24px_rgba(254,219,84,0.4)] transition-all duration-200 text-xs sm:text-sm md:text-lg group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-hero active:scale-[0.98]"
                     >
                         <span className="flex-1 md:flex-none">Book Your Free Growth Clarity Session</span>
@@ -120,11 +125,12 @@ const Hero = () => {
                         <div className="flex items-center gap-4 mb-8">
                             <button
                                 type="button"
+                                onClick={openModal}
                                 className="px-6 py-2.5 bg-white/10 text-white rounded-full border border-white/20 font-medium hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
                             >
                                 Start My Journey
                             </button>
-                            <div className="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center hover:bg-white/95 transition-colors cursor-pointer" role="button" tabIndex={0}>
+                            <div onClick={openModal} className="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center hover:bg-white/95 transition-colors cursor-pointer" role="button" tabIndex={0}>
                                 <ArrowUpRight size={22} />
                             </div>
                         </div>
@@ -151,6 +157,7 @@ const Hero = () => {
                         custom={1}
                         whileHover={cardHover}
                         whileTap={cardTap}
+                        onClick={() => router.push('/about')}
                         className="bg-auth-web rounded-[2.5rem] relative overflow-hidden h-[400px] cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-200 group"
                     >
                         <Image
@@ -184,6 +191,7 @@ const Hero = () => {
                                 <div key={idx} className="flex items-center justify-between py-4 border-t border-white/10 hover:border-white/20 transition-colors group/item">
                                     <p className="text-text-on-dark-muted text-sm max-w-[200px] group-hover/item:text-text-on-dark transition-colors">{item.text}</p>
                                     <div
+                                        onClick={() => router.push('/services')}
                                         className="w-10 h-10 text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer shrink-0"
                                         style={{ backgroundColor: item.color }}
                                     >
@@ -207,6 +215,7 @@ const Hero = () => {
                         <h3 className="text-text-on-dark text-3xl font-bold leading-tight">Empowering <br /> People & <br /> Brands</h3>
                         <button
                             type="button"
+                            onClick={() => router.push('/about')}
                             className="flex items-center gap-2 text-text-on-dark-muted hover:text-text-on-dark transition-colors group w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-light rounded-lg"
                         >
                             Impact Driven Results

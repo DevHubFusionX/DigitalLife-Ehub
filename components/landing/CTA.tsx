@@ -3,8 +3,10 @@
 import React from "react";
 import { ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
 import { motion } from "framer-motion";
+import { useModal } from "@/context/ModalContext";
 
 const CTA = () => {
+    const { openModal } = useModal();
     return (
         <section className="py-32 bg-cta-bg relative overflow-hidden">
             {/* Background decoration */}
@@ -59,7 +61,10 @@ const CTA = () => {
                                 transition={{ delay: 0.3 }}
                                 className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16"
                             >
-                                <button className="group px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2 active:scale-95">
+                                <button 
+                                    onClick={openModal}
+                                    className="group px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2 active:scale-95"
+                                >
                                     Book Free Consultation
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
