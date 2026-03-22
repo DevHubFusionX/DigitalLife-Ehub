@@ -52,21 +52,22 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+                <div className="fixed inset-0 z-[100] flex items-start md:items-center justify-center p-4 md:p-6 overflow-y-auto pt-[10dvh] md:pt-0">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
                         onClick={handleClose}
-                        className="absolute inset-0 bg-black/70 backdrop-blur-2xl"
+                        className="absolute inset-0 bg-black/80"
                     />
 
                     <motion.div
-                        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                        initial={{ opacity: 0, y: 30, scale: 0.97 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 40, scale: 0.96 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="relative w-full max-w-[420px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/[0.06]"
+                        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 1, 1] }}
+                        className="relative w-full max-w-[420px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/[0.06] will-change-transform"
                     >
                         {/* Noise */}
                         <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
@@ -97,8 +98,8 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
                                         key="login"
                                         initial={{ opacity: 0, x: 30 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -30 }}
-                                        transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                                     >
                                         <h2 className="text-2xl font-black text-white mb-1">Welcome back</h2>
                                         <p className="text-white/30 text-sm mb-8">Sign in to your account.</p>
@@ -108,12 +109,16 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
                                                 <label className="block text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-2">Email</label>
                                                 <input
                                                     type="email"
+                                                    ref={(input) => {
+                                                        if (input) {
+                                                            setTimeout(() => input.focus(), 300);
+                                                        }
+                                                    }}
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     placeholder="name@company.com"
                                                     className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3.5 text-white font-medium text-sm outline-none focus:border-accent/50 focus:bg-white/[0.06] transition-all placeholder:text-white/10"
                                                     required
-                                                    autoFocus
                                                 />
                                             </div>
 
@@ -181,8 +186,8 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
                                         key="forgot"
                                         initial={{ opacity: 0, x: 30 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -30 }}
-                                        transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                                     >
                                         <h2 className="text-2xl font-black text-white mb-1">Reset password</h2>
                                         <p className="text-white/30 text-sm mb-8">We&apos;ll email you a reset link.</p>
@@ -192,12 +197,16 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
                                                 <label className="block text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-2">Email Address</label>
                                                 <input
                                                     type="email"
+                                                    ref={(input) => {
+                                                        if (input) {
+                                                            setTimeout(() => input.focus(), 300);
+                                                        }
+                                                    }}
                                                     value={forgotEmail}
                                                     onChange={(e) => setForgotEmail(e.target.value)}
                                                     placeholder="name@company.com"
                                                     className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3.5 text-white font-medium text-sm outline-none focus:border-accent/50 focus:bg-white/[0.06] transition-all placeholder:text-white/10"
                                                     required
-                                                    autoFocus
                                                 />
                                             </div>
 
@@ -233,7 +242,7 @@ const LoginModal = ({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) =>
                                         <motion.div
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
-                                            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                                            transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1], delay: 0.1 }}
                                             className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-6"
                                         >
                                             <CheckCircle2 size={28} className="text-white" />

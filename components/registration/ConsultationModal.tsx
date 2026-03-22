@@ -23,11 +23,12 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
 
     useEffect(() => {
         if (!isOpen) {
-            setTimeout(() => {
+            const timer = setTimeout(() => {
                 setStep(1);
                 setDirection(1);
                 setFormData({ name: "", email: "", password: "" });
-            }, 500);
+            }, 300);
+            return () => clearTimeout(timer);
         }
     }, [isOpen]);
 
@@ -52,12 +53,12 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6">
+                <div className="fixed inset-0 z-100 flex items-start md:items-center justify-center p-4 md:p-6 overflow-y-auto pt-[10dvh] md:pt-0">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.15 }}
                         onClick={onClose}
                         className="absolute inset-0 bg-black/80"
                     />
@@ -65,9 +66,9 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                     <motion.div
                         initial={{ opacity: 0, y: 30, scale: 0.97 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 30, scale: 0.97 }}
-                        transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="relative w-full max-w-[460px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/6"
+                        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 1, 1] }}
+                        className="relative w-full max-w-[460px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/6 will-change-transform"
                     >
                         {/* Subtle noise texture via CSS gradient */}
                         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E")' }} />
@@ -112,10 +113,10 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                                 <motion.div
                                     key={step}
                                     custom={direction}
-                                    initial={{ opacity: 0, x: direction * 40 }}
+                                    initial={{ opacity: 0, x: direction * 30 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: direction * -40 }}
-                                    transition={{ type: "spring", stiffness: 350, damping: 35 }}
+                                    exit={{ opacity: 0, x: direction * -20 }}
+                                    transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                                     className="w-full"
                                 >
                                     {step === 1 && (
@@ -136,7 +137,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                                             <motion.div
                                                 initial={{ scale: 0 }}
                                                 animate={{ scale: 1 }}
-                                                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                                                transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1], delay: 0.1 }}
                                                 className="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center mb-6 mx-auto"
                                             >
                                                 <CheckCircle2 size={32} className="text-white" />

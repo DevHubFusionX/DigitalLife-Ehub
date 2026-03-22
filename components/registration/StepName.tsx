@@ -51,12 +51,16 @@ const StepName = ({ onNext, initialValue }: StepNameProps) => {
                     <label className="block text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-2">Full Name</label>
                     <input
                         type="text"
+                        ref={(input) => {
+                            if (input) {
+                                setTimeout(() => input.focus(), 300);
+                            }
+                        }}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. John Smith"
                         className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3.5 text-white font-medium text-sm outline-none focus:border-accent/50 focus:bg-white/[0.06] transition-all placeholder:text-white/10"
                         required
-                        autoFocus
                     />
                 </div>
 

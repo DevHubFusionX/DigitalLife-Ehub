@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 interface StepAccountProps {
@@ -29,12 +28,16 @@ const StepAccount = ({ onNext, onBack, initialEmail }: StepAccountProps) => {
                     <label className="block text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-2">Email</label>
                     <input
                         type="email"
+                        ref={(input) => {
+                            if (input) {
+                                setTimeout(() => input.focus(), 300);
+                            }
+                        }}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="name@company.com"
                         className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3.5 text-white font-medium text-sm outline-none focus:border-accent/50 focus:bg-white/[0.06] transition-all placeholder:text-white/10"
                         required
-                        autoFocus
                     />
                 </div>
 
