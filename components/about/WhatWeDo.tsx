@@ -3,8 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Target, Settings, Share2, Globe, Rocket } from "lucide-react";
+import { useModal } from "@/context/ModalContext";
 
 const WhatWeDo = () => {
+    const { openModal } = useModal();
     const pillars = [
         {
             title: "Business Clarity & Strategic Planning",
@@ -91,6 +93,7 @@ const WhatWeDo = () => {
                     <div className="relative z-10">
                         <h3 className="text-xl md:text-4xl font-bold text-white mb-6 md:mb-10 max-w-2xl mx-auto leading-tight">Ready to start your growth journey?</h3>
                         <motion.button
+                            onClick={openModal}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-accent text-primary text-sm md:text-base font-black rounded-full shadow-2xl shadow-accent/20 transition-all group active:scale-95"

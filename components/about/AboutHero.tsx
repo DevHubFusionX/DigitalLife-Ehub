@@ -3,9 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { useModal } from "@/context/ModalContext";
 
 const AboutHero = () => {
+    const { openModal } = useModal();
     const pillars = [
         { title: "Clear direction", desc: "No more second-guessing your next move. Total strategic alignment." },
         { title: "Organized operations", desc: "Systems that work while you sleep. Efficiency by design." },
@@ -110,12 +111,12 @@ const AboutHero = () => {
                     transition={{ duration: 1, delay: 0.6 }}
                     className="mt-10 md:mt-24 flex flex-col md:flex-row items-center gap-5 md:gap-8 text-center md:text-left"
                 >
-                    <Link
-                        href="#get-started"
+                    <button
+                        onClick={openModal}
                         className="w-full md:w-auto px-10 py-4 bg-white text-primary font-black text-sm md:text-base rounded-full hover:bg-accent transition-all duration-300 active:scale-95 text-center"
                     >
                         Consult Our Growth Team
-                    </Link>
+                    </button>
                     <p className="text-white/30 text-xs md:text-sm font-medium tracking-wide italic">
                         &quot;Your vision, our structure.&quot;
                     </p>
