@@ -42,26 +42,22 @@ const Navbar = () => {
     };
 
     const menuVariants: Variants = {
-        hidden: { opacity: 0, x: "100%" },
+        hidden: { x: "100%" },
         visible: { 
-            opacity: 1, 
             x: 0,
             transition: { 
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                staggerChildren: 0.1, 
-                delayChildren: 0.1
+                duration: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                staggerChildren: 0.06, 
+                delayChildren: 0.05
             } 
         },
         exit: { 
-            opacity: 0, 
             x: "100%",
             transition: { 
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-                staggerChildren: 0.05, 
+                duration: 0.25,
+                ease: [0.55, 0, 1, 0.45],
+                staggerChildren: 0.03, 
                 staggerDirection: -1 
             } 
         },
@@ -162,8 +158,9 @@ const Navbar = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 z-90 bg-primary/20 backdrop-blur-sm lg:hidden"
+                            className="fixed inset-0 z-90 bg-primary/40 lg:hidden"
                         />
                         
                         {/* Mature Right Side Panel */}
@@ -172,7 +169,7 @@ const Navbar = () => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="fixed top-0 right-0 bottom-0 w-[85%] max-w-[360px] z-100 bg-white shadow-[-20px_0_80px_rgba(0,0,0,0.3)] lg:hidden flex flex-col"
+                            className="fixed top-0 right-0 bottom-0 w-[85%] max-w-[360px] z-100 bg-white shadow-[-8px_0_30px_rgba(0,0,0,0.15)] lg:hidden flex flex-col will-change-transform"
                         >
                             <div className="p-6 flex items-center justify-between border-b border-black/5">
                                 <div className="flex items-center gap-2">

@@ -52,24 +52,25 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+                <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-black/70 backdrop-blur-2xl"
+                        className="absolute inset-0 bg-black/80"
                     />
 
                     <motion.div
-                        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                        initial={{ opacity: 0, y: 30, scale: 0.97 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 40, scale: 0.96 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        exit={{ opacity: 0, y: 30, scale: 0.97 }}
+                        transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
                         className="relative w-full max-w-[460px] bg-[#111111] rounded-3xl shadow-2xl overflow-hidden border border-white/6"
                     >
-                        {/* Noise texture */}
-                        <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                        {/* Subtle noise texture via CSS gradient */}
+                        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E")' }} />
 
                         {/* Header */}
                         <div className="relative px-8 pt-8 pb-0">
