@@ -13,6 +13,7 @@ const NAV_LINKS = [
     { name: "Services", href: "/services" },
     { name: "Community", href: "/community" },
     { name: "Trainings", href: "/trainings" },
+    { name: "Resources", href: "/resources" },
 ];
 
 const Navbar = () => {
