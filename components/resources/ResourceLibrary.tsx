@@ -24,13 +24,41 @@ const LATEST_REPORT: Resource = {
 
 const ResourceLibrary = () => {
   // Section 2: Featured Resources tab state
-  const [featuredTopic, setFeaturedTopic] = useState<typeof TOPICS[number]>('Marketing');
+  const [featuredTopic, setFeaturedTopic] = useState<string>('Marketing');
 
   // Section 4: Browse All filters state
   const [browseTopic, setBrowseTopic] = useState<string>('All Topics');
   const [browseType, setBrowseType] = useState<string>('All Content Types');
   const [browseFormat, setBrowseFormat] = useState<string>('All Formats');
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Live resources state
+  const [resourcesList, setResourcesList] = useState<Resource[]>(RESOURCES_DATA);
+
+  // Dynamically compute unique topics, formats, and types from the live resources database list
+  const uniqueTopics = useMemo(() => {
+    const set = new Set<string>(TOPICS);
+    resourcesList.forEach((r) => {
+      if (r.topic) set.add(r.topic);
+    });
+    return Array.from(set);
+  }, [resourcesList]);
+
+  const uniqueFormats = useMemo(() => {
+    const set = new Set<string>(FORMATS);
+    resourcesList.forEach((r) => {
+      if (r.format) set.add(r.format);
+    });
+    return Array.from(set);
+  }, [resourcesList]);
+
+  const uniqueContentTypes = useMemo(() => {
+    const set = new Set<string>(CONTENT_TYPES);
+    resourcesList.forEach((r) => {
+      if (r.contentType) set.add(r.contentType);
+    });
+    return Array.from(set);
+  }, [resourcesList]);
 
   // Dropdown open states
   const [topicDropdownOpen, setTopicDropdownOpen] = useState(false);
@@ -42,9 +70,6 @@ const ResourceLibrary = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const browseRef = useRef<HTMLDivElement>(null);
-
-  // Live resources state
-  const [resourcesList, setResourcesList] = useState<Resource[]>(RESOURCES_DATA);
 
   useEffect(() => {
     const fetchLiveResources = async () => {

@@ -2,9 +2,9 @@ export interface Resource {
   id: string;
   title: string;
   description: string;
-  topic: 'Marketing' | 'Sales' | 'Customer Success' | 'Leadership' | 'AI and Automation';
-  format: 'Ebook' | 'Tool' | 'Guide' | 'Template' | 'Webinar';
-  contentType: 'Free' | 'Premium';
+  topic: string;
+  format: string;
+  contentType: string;
   downloadUrl: string;
   infoLabel?: string; // e.g. "PDF", "Excel Sheet", "15 Mins Video"
   featured?: boolean;
