@@ -7,20 +7,20 @@ import { Users, Layout, TrendingUp, Calendar } from "lucide-react";
 const WhoWeAre = () => {
     const roles = [
         {
-            title: "Strategic Thinkers",
-            desc: "We analyze the variables that others miss to find your unique path to growth.",
+            title: "Business Growth Strategists",
+            desc: "As leading business growth strategists, we help small business consultants and enterprise builders focus on value over skills monetization.",
             icon: Users,
             color: "bg-blue-500"
         },
         {
-            title: "System Builders",
-            desc: "We don't just advise; we engineer the workflows and SOPs that eliminate chaos.",
+            title: "MSME Structural Gap Experts",
+            desc: "We engineer the corporate accountability systems and operational workflows that close structural gaps and enable scaling.",
             icon: Layout,
             color: "bg-purple-500"
         },
         {
-            title: "Growth Partners",
-            desc: "Your success is our metric. We walk the path with you, from hustle to scale.",
+            title: "Business Development Partners",
+            desc: "We serve as committed business development service providers, building organic client acquisition strategy with a product first business approach.",
             icon: TrendingUp,
             color: "bg-emerald-500"
         }
@@ -43,7 +43,7 @@ const WhoWeAre = () => {
                           Who We Are
                         </h2>
                         <p className="text-[15px] md:text-lg text-text-secondary leading-relaxed mb-8 md:mb-12 max-w-xl mx-auto lg:mx-0">
-                            Digitalife Ehub is a business development and brand management firm focused on empowering MSMEs, SMEs, early-stage entrepreneurs, and informal businesses to build structured, scalable, and visible enterprises.
+                            DigitalLife Ehub is a premier team of business development service providers and MSME structural gap experts focused on helping you transition from hustle to structured growth.
                         </p>
 
                         <div className="flex justify-center lg:justify-start">

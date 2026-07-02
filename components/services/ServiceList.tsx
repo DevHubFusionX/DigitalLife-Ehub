@@ -10,45 +10,45 @@ const ServiceList = () => {
     const { openModal } = useModal();
     const services = [
         {
-            title: "Business Strategy & Clarity",
-            focus: "Define. Align. Grow.",
-            desc: "Move from a cluttered vision to a crystal-clear strategy. We help you identify your core offerings, target market, and high-impact growth paths.",
+            title: "Business Clarity & Roadmap Consultation",
+            focus: "SME Scaling Strategy",
+            desc: "Move from a cluttered vision to a structured roadmap. Get our bespoke business roadmap consultation and structured business development services.",
             stats: "6-10 Weeks Hands-on Support",
             icon: Target,
             image: "/images/services/strategy.png",
             color: "bg-blue-600"
         },
         {
-            title: "MSME Formalization",
-            focus: "Structure. Systems. Scale.",
-            desc: "Transition from informal hustle to an organized business entity. We handle business registration, setup operational frameworks, and implement scalable systems.",
+            title: "Small Business Formalization",
+            focus: "Corporate Workflow Design",
+            desc: "Transition from informal hustle to an organized corporate entity. We specialize in small business formalization, corporate workflow design, and business system structuring.",
             stats: "Full Operational Setup",
             icon: FileText,
             image: "/images/services/formalization.png",
             color: "bg-purple-600"
         },
         {
-            title: "Brand Management & Social Media",
-            focus: "Visibility. Authority. Results.",
-            desc: "Don't just be online; be authoritative. We manage your presence across platforms to attract partnerships, customers, and opportunities.",
+            title: "Strategic Brand Positioning",
+            focus: "Social Media Management with Structure",
+            desc: "Build authority and command market share. We offer strategic brand positioning and social media management with structure to convert attention into clients.",
             stats: "Consistent Market Presence",
             icon: Share2,
             image: "/images/services/brand.png",
             color: "bg-pink-600"
         },
         {
-            title: "Website Development",
-            focus: "Digital Clarity. High Conversion.",
-            desc: "Professional digital homes that command respect and convert visitors into partners. We build scalable, high-performance websites tailored to your growth.",
+            title: "Custom Website Design to Convert",
+            focus: "E-commerce Web Development for Small Business",
+            desc: "Build high-performance online storefronts. We offer custom website design to convert visitors and robust e-commerce web development for small business.",
             stats: "SEO & Performance Optimized",
             icon: Globe,
             image: "/images/services/website.png",
             color: "bg-emerald-600"
         },
         {
-            title: "Operational Systems Setup",
-            focus: "Efficiency. Workflow. Ease.",
-            desc: "Set up the tools and workflows that allow your business to run without constant manual intervention. SOPs, CRMs, and unified communications.",
+            title: "SOP Development Services",
+            focus: "Standard Operating Procedures Template",
+            desc: "Create systems that run without constant manual intervention. Leverage our SOP development services and standard operating procedures template to empower your team.",
             stats: "Eliminate Operational Chaos",
             icon: Settings,
             image: "/images/services/operations.png",

@@ -5,6 +5,8 @@ import { BookOpen, HelpCircle, FileText, ArrowDownToLine, PlayCircle, Layers, Cp
 import { Resource } from "./resourcesData";
 import ResourceFrame from "./ResourceFrame";
 
+import Link from "next/link";
+
 interface ResourceCardProps {
   resource: Resource;
   onDownloadClick: (resource: Resource) => void;
@@ -66,45 +68,52 @@ const ResourceCard = ({ resource, onDownloadClick }: ResourceCardProps) => {
 
   return (
     <div 
-      onClick={() => onDownloadClick(resource)}
-      className="group bg-white rounded-3xl overflow-hidden border border-[#0F172A]/8 hover:border-[#0F172A]/15 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 cursor-pointer"
+      className="group bg-white rounded-3xl overflow-hidden border border-[#0F172A]/8 hover:border-[#0F172A]/15 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
     >
-      {/* Visual Cover Header */}
-      <ResourceFrame
-        format={resource.format}
-        title={resource.title}
-        coverUrl={resource.coverUrl}
-        coverGradient={resource.coverGradient || styles.gradient}
-        tagLabel={resource.tagLabel}
-      />
+      <Link href={`/resources/${resource.id}`} className="flex flex-col flex-1">
+        {/* Visual Cover Header */}
+        <ResourceFrame
+          format={resource.format}
+          title={resource.title}
+          coverUrl={resource.coverUrl}
+          coverGradient={resource.coverGradient || styles.gradient}
+          tagLabel={resource.tagLabel}
+        />
 
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1">
-        {/* Tag Badges */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${styles.accentBg}`}>
-            {resource.topic}
-          </span>
-          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 flex items-center">
-            {getFormatIcon(resource.format)}
-            {resource.format}
-          </span>
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-1">
+          {/* Tag Badges */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${styles.accentBg}`}>
+              {resource.topic}
+            </span>
+            <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 flex items-center">
+              {getFormatIcon(resource.format)}
+              {resource.format}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h4 className="text-lg font-bold text-[#0F172A] leading-snug mb-2 group-hover:text-[#4F46E5] transition-colors duration-200">
+            {resource.title}
+          </h4>
+
+          {/* Description */}
+          <p className="text-xs text-[#475569] leading-relaxed mb-6 flex-1 line-clamp-3">
+            {resource.description}
+          </p>
         </div>
+      </Link>
 
-        {/* Title */}
-        <h4 className="text-lg font-bold text-[#0F172A] leading-snug mb-2 group-hover:text-accent-dark transition-colors duration-200">
-          {resource.title}
-        </h4>
-
-        {/* Description */}
-        <p className="text-xs text-[#475569] leading-relaxed mb-6 flex-1 line-clamp-3">
-          {resource.description}
-        </p>
-
+      <div className="px-6 pb-6 mt-auto">
         {/* Action Button */}
         <button
-          onClick={() => onDownloadClick(resource)}
-          className="w-full mt-auto py-3 bg-[#0F172A] hover:bg-[#020617] text-white hover:text-accent font-bold rounded-xl text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:shadow-md transition-all active:scale-[0.98]"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onDownloadClick(resource);
+          }}
+          className="w-full py-3 bg-[#0F172A] hover:bg-[#020617] text-white hover:text-accent font-bold rounded-xl text-xs uppercase tracking-widest flex items-center justify-center gap-2 group-hover:shadow-md transition-all active:scale-[0.98]"
         >
           <ArrowDownToLine size={14} className="group-hover:translate-y-0.5 transition-transform" />
           Download Now

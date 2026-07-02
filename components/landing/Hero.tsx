@@ -14,9 +14,9 @@ const Hero = () => {
     const [headlinePaused, setHeadlinePaused] = useState(false);
     const headlines = [
         ["From Hustle to", "Structured Growth"],
-        ["Building People.", "Brands. Purpose."],
-        ["Move from Informal", "to Organized"],
-        ["Sustainable Growth", "Support"]
+        ["SME Scaling", "Strategy"],
+        ["MSME Growth", "Framework"],
+        ["Operational Systems", "Design"]
     ];
 
     useEffect(() => {
@@ -80,9 +80,9 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="text-sm md:text-lg text-text-on-dark-muted max-w-2xl mx-auto mb-6 md:mb-10 px-4 leading-relaxed"
+                    className="text-sm md:text-lg text-text-on-dark-muted max-w-3xl mx-auto mb-6 md:mb-10 px-4 leading-relaxed"
                 >
-                    Gain clarity, boost your visibility, and build a strong operational structure <br className="hidden md:block" /> in 6–10 weeks with our hands-on business development support.
+                    Partner with an expert business structure consultant for hands-on business development support. Let us deploy a custom MSME growth framework to transition your team from hustle to structured growth.
                 </motion.p>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -184,9 +184,9 @@ const Hero = () => {
                         <h3 className="text-text-on-dark text-xl font-bold mb-8">Our Core Growth Pillars</h3>
                         <div className="space-y-6">
                             {[
-                                { text: "Business Strategy & Clarity Development", color: "var(--color-auth-sales)" },
-                                { text: "MSME Formalization & Structure Setup", color: "var(--color-auth-mail)" },
-                                { text: "Brand Positioning & Social Media", color: "var(--color-auth-flow)" }
+                                { text: "Business Clarity Development & SME Scaling Strategy", color: "var(--color-auth-sales)" },
+                                { text: "Corporate Structure for MSMEs & Systems Design", color: "var(--color-auth-mail)" },
+                                { text: "Brand Positioning & Business Development Support", color: "var(--color-auth-flow)" }
                             ].map((item, idx) => (
                                 <div key={idx} className="flex items-center justify-between py-4 border-t border-white/10 hover:border-white/20 transition-colors group/item">
                                     <p className="text-text-on-dark-muted text-sm max-w-[200px] group-hover/item:text-text-on-dark transition-colors">{item.text}</p>
@@ -230,7 +230,7 @@ const Hero = () => {
                         whileTap={cardTap}
                         className="bg-accent rounded-[2.5rem] p-8 h-[400px] flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-default"
                     >
-                        <p className="text-primary font-bold text-sm mb-8">Accelerated <br /> Sustainable Business Growth</p>
+                        <p className="text-primary font-bold text-sm mb-8">Small Business <br /> Development Services</p>
                         <div className="mt-auto flex items-end justify-between h-48 px-2">
                             {[
                                 { height: "70%", val: "30%", color: "bg-primary/20" },
