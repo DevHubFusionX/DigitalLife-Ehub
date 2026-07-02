@@ -118,7 +118,7 @@ DigitalLife Ehub Team.
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className={`relative w-full ${step === "success" && youtubeId ? "max-w-3xl" : "max-w-lg"} bg-[#1E293B] border border-white/10 rounded-3xl overflow-hidden shadow-2xl z-10 transition-all duration-500`}
+            className={`relative w-full ${step === "success" && youtubeId ? "max-w-3xl" : "max-w-lg"} bg-[#1E293B] border border-white/10 rounded-3xl overflow-y-auto max-h-[90vh] md:max-h-[95vh] shadow-2xl z-10 transition-all duration-500`}
           >
             {/* Header / Info bar */}
             <div className="absolute top-4 right-4 z-20">

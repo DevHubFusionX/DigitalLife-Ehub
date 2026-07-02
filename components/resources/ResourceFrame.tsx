@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
 interface ResourceFrameProps {
-  format: "Ebook" | "Tool" | "Guide" | "Template" | "Webinar";
+  format: string;
   title: string;
   coverUrl?: string;
   coverGradient?: string;

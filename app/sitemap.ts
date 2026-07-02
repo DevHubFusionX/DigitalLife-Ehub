@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next";
-import { RESOURCES_DATA } from "@/components/resources/resourcesData";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { RESOURCES_DATA, Resource } from "@/components/resources/resourcesData";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://digitallife-ehub.com";
 
   // Base pages of the application
@@ -19,8 +21,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.8,
   }));
 
+  let resourcesList: Resource[] = RESOURCES_DATA;
+  try {
+    const querySnapshot = await getDocs(collection(db, "resources"));
+    if (!querySnapshot.empty) {
+      const items: Resource[] = [];
+      querySnapshot.forEach((docSnap) => {
+        items.push({ id: docSnap.id, ...docSnap.data() } as Resource);
+      });
+      resourcesList = items;
+    }
+  } catch (e) {
+    console.warn("Sitemap failed to fetch live Firestore resources, falling back to static resources list", e);
+  }
+
   // Dynamic resource details pages
-  const resourcePages = RESOURCES_DATA.map((resource) => ({
+  const resourcePages = resourcesList.map((resource) => ({
     url: `${baseUrl}/resources/${resource.id}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
